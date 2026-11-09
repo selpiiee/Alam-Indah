@@ -1,0 +1,2154 @@
+/* =====================================================
+   ALAM INDAH - style.css
+   Urutan section mengikuti urutan di index.html:
+
+   0.  Font & Base
+   1.  Komponen umum (section-badge)
+   2.  Hero (Hero, Navbar, Hero Content)
+   3.  Achievement
+   4.  Partnership (Klien & Mitra)
+   5.  Produk
+   6.  Layanan
+   7.  Testimoni
+   8.  FAQ
+   9.  Artikel & Tips
+   10. Lokasi (peta Indonesia + link Google Maps)
+   11. CTA
+   12. Footer
+   13. Tidak dipakai di HTML saat ini
+
+   Di tiap section urutannya: style dasar -> tablet -> HP
+===================================================== */
+
+
+/* =====================================================
+   0. FONT & BASE
+===================================================== */
+
+@font-face {
+    font-family: 'SF Pro Display';
+    src: url('fonts/SF-Pro-Display-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SF Pro Display';
+    src: url('fonts/SF-Pro-Display-Medium.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SF Pro Display';
+    src: url('fonts/SF-Pro-Display-Bold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+body {
+    font-family: 'SF Pro Display', sans-serif;
+    color: #ffffff;
+}
+
+
+/* =====================================================
+   1. KOMPONEN UMUM
+   Dipakai di: Achievement, Layanan
+===================================================== */
+
+.section-badge {
+    display: inline-block;
+    padding: 6px 20px;
+    margin-bottom: 14px;
+    border-radius: 12px;
+    background: #eaf4ff;
+    color: #1680ff;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+
+/* =====================================================
+   2. HERO
+===================================================== */
+
+/* ---------- 2a. Hero (background) ---------- */
+
+.hero {
+    min-height: 580px;
+    position: relative;
+    overflow: hidden;
+
+    background-image:
+        linear-gradient(to bottom,
+            rgba(0, 0, 0, 0.78) 0%,
+            rgba(0, 0, 0, 0.10) 45%,
+            rgba(0, 0, 0, 0.35) 100%),
+        url("../img/hero/hero-lp.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Blur di bagian bawah hero */
+.hero {
+    min-height: 580px;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    background-image:
+        linear-gradient(to bottom,
+            rgba(0, 0, 0, 0.78) 0%,
+            rgba(0, 0, 0, 0.10) 45%,
+            rgba(0, 0, 0, 0.35) 100%),
+        url("../img/hero/hero-lp.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Blur bagian bawah hero */
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: auto 0 0 0;
+    height: 520px;
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    mask-image: linear-gradient(to bottom, transparent, black);
+    -webkit-mask-image: linear-gradient(to bottom, transparent, black);
+
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Navbar tetap di atas blur */
+/* ---------- NAVBAR ---------- */
+.hero-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    padding-top: 52px;
+    padding-bottom: 52px;
+
+    z-index: 9999;
+
+    background: linear-gradient(to bottom,
+            rgba(0, 0, 0, 0.75) 0%,
+            rgba(0, 0, 0, 0.45) 45%,
+            rgba(0, 0, 0, 0.15) 75%,
+            rgba(0, 0, 0, 0) 100%);
+}
+
+/* ---------- HERO CONTENT ---------- */
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.logo {
+    width: 128px;
+    padding-left: 64px;
+    height: 80px;
+    object-fit: contain;
+}
+
+.hero-navbar .nav-link {
+    color: #ffffff;
+    font-family: 'SF Pro Display', sans-serif;
+    font-size: 18px;
+    line-height: 1.35;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.hero-navbar .nav-link:hover {
+    color: #EBF8FF;
+}
+
+.nav-button {
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 8px;
+    white-space: nowrap;
+    padding: 8px 16px;
+}
+
+.hero-navbar .navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+.hero-navbar .navbar-toggler-icon {
+    filter: invert(1);
+}
+
+
+/* ---------- 2c. Hero content ---------- */
+
+.hero-content {
+    min-height: 900px;
+    display: flex;
+    align-items: flex-end;
+    padding-top: 120px;
+    padding-left: 64px;
+    padding-right: 324px;
+    padding-bottom: 100px;
+}
+
+.hero-text {
+    max-width: 1440px;
+}
+
+.hero-breadcrumb {
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 16px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    color: #292929;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: 'SF Pro Display', sans-serif;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 4px;
+    padding-right: 8px;
+    line-height: 1.4;
+}
+
+.hero-breadcrumb span {
+    padding: 4px 10px;
+}
+
+.hero-breadcrumb .breadcrumb-active {
+    color: #ffffff;
+    padding-bottom: 4px;
+    padding-top: 4px;
+    padding-left: 12px;
+    padding-right: 12px;
+    border-radius: 8px;
+    background-color: #087cf0;
+}
+
+.hero-text h1 {
+    font-family: 'SF Pro Display', sans-serif;
+    font-size: 64px;
+    font-weight: 600;
+    line-height: 1.12;
+    letter-spacing: -0.02px;
+    margin-bottom: 8px;
+}
+
+.hero-text p {
+    font-family: 'SF Pro Display', sans-serif;
+    max-width: 578px;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.4;
+    margin-bottom: 0;
+}
+
+
+/* ---------- 2d. Hero: tablet ---------- */
+
+@media (max-width: 991.98px) {
+
+    /* Navbar */
+    .hero-navbar .navbar-collapse {
+        margin-top: 12px;
+        padding: 16px;
+        border-radius: 12px;
+        background-color: rgba(20, 20, 20, 0.94);
+    }
+
+    .hero-navbar .navbar-nav {
+        align-items: stretch !important;
+        gap: 6px !important;
+    }
+
+    .hero-navbar .nav-link {
+        font-size: 14px;
+    }
+
+    .nav-button {
+        display: block;
+        text-align: center;
+        font-size: 12px;
+    }
+
+    /* Hero content */
+    .hero-content {
+        min-height: 450px;
+        padding-bottom: 45px;
+    }
+}
+
+
+/* ---------- 2e. Hero: HP ---------- */
+
+@media (max-width: 575.98px) {
+
+    .hero {
+        min-height: 650px;
+        background-position: center;
+    }
+
+    .logo {
+        width: 65px;
+    }
+
+    .hero-content {
+        min-height: 540px;
+        padding-bottom: 35px;
+    }
+
+    .hero-text h1 {
+        font-size: 30px;
+        letter-spacing: -0.6px;
+    }
+
+    .hero-text p {
+        font-size: 12px;
+    }
+
+    .hero-breadcrumb {
+        font-size: 9px;
+    }
+}
+
+
+/* =====================================================
+   3. ACHIEVEMENT
+===================================================== */
+
+.achievement-section {
+    background-color: #ffffff;
+    color: #111111;
+    padding: 64px 0 64px;
+}
+
+/* Heading */
+
+.achievement-heading {
+    max-width: 1440px;
+    margin: 0 auto 38px;
+}
+
+.achievement-heading h2 {
+    font-family: 'SF Pro Display', sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.16;
+    letter-spacing: -0.02px;
+    margin-bottom: 12px;
+}
+
+.achievement-heading>p {
+    font-size: 20px;
+    margin-bottom: 0;
+}
+
+/* Statistik */
+
+.achievement-list {
+    align-items: center;
+    row-gap: 24px;
+}
+
+.achievement-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    height: 100%;
+}
+
+.achievement-icon {
+    flex: 0 0 64px;
+    width: 64px;
+    height: 64px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #fff0df;
+    border-radius: 50%;
+}
+
+.achievement-icon img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+.achievement-info h3 {
+    font-family: 'SF Pro Display', sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 2px;
+    white-space: nowrap;
+}
+
+.achievement-info p {
+    font-size: 20px;
+    margin-bottom: 0;
+    white-space: nowrap;
+}
+
+/* Tablet */
+
+@media (max-width: 991.98px) {
+    .achievement-item {
+        justify-content: flex-start;
+    }
+
+    .achievement-heading h2 {
+        font-size: 32px;
+    }
+}
+
+/* HP */
+
+@media (max-width: 575.98px) {
+    .achievement-section {
+        padding: 42px 0;
+    }
+
+    .achievement-heading h2 {
+        font-size: 28px;
+        line-height: 1.1;
+    }
+
+    .achievement-heading>p {
+        font-size: 13px;
+    }
+
+    .achievement-item {
+        gap: 8px;
+    }
+
+    .achievement-icon {
+        flex-basis: 44px;
+        width: 44px;
+        height: 44px;
+    }
+
+    .achievement-icon img {
+        width: 21px;
+        height: 21px;
+    }
+
+    .achievement-info h3 {
+        font-size: 20px;
+    }
+
+    .achievement-info p {
+        font-size: 10px;
+        white-space: normal;
+    }
+}
+
+
+/* =====================================================
+   4. PARTNERSHIP (KLIEN & MITRA)
+===================================================== */
+
+.partnership-section {
+    padding: 80px 64px;
+    background-color: #F5FBFF;
+}
+
+.partnership-content {
+    row-gap: 40px;
+}
+
+.partnership-badge {
+    display: inline-block;
+    padding: 4px 20px;
+    margin-bottom: 14px;
+
+    background-color: #eaf4ff;
+    color: #1680ff;
+
+    border-radius: 8px;
+    font-size: 20px;
+    line-height: 1.4;
+    font-weight: 600;
+}
+
+/* Teks di kiri */
+.partnership-text {
+    padding-right: 50px;
+}
+
+.partnership-text h2 {
+    font-size: 56px;
+    font-family: 'SF Pro Display', sans-serif;
+    color: #000000;
+    line-height: 1.15;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.partnership-description {
+    max-width: 652px;
+    font-size: 20px;
+    line-height: 1.4;
+    color: #000000;
+    margin-bottom: 0;
+}
+
+/* Logo di kanan: 3 atas, 2 bawah */
+.partnership-logos {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 54px;
+    align-items: center;
+}
+
+.partner-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 120px;
+}
+
+.partner-logo img {
+    display: block;
+    max-width: 100%;
+    max-height: 100px;
+    object-fit: contain;
+}
+
+/* Tablet */
+@media (max-width: 991.98px) {
+    .partnership-text {
+        padding-right: 12px;
+    }
+
+    .partnership-text h2 {
+        font-size: 32px;
+    }
+
+    .partnership-logos {
+        gap: 20px 12px;
+    }
+}
+
+/* HP */
+@media (max-width: 575.98px) {
+    .partnership-section {
+        padding: 56px 0;
+    }
+
+    .partnership-logos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .partner-logo {
+        min-height: 80px;
+    }
+}
+
+
+/* =====================================================
+   5. PRODUK
+===================================================== */
+
+.product-section {
+    background-color: #ffffff;
+    color: #111111;
+    padding: 64px 0 64px;
+}
+
+/* Header */
+
+.product-header {
+    width: 100%;
+    text-align: center;
+    margin: 0 auto 48px;
+}
+
+.product-badge {
+    display: inline-block;
+    width: fit-content;
+    max-width: none;
+    white-space: nowrap;
+    padding: 6px 20px;
+    margin: 0 auto 16px;
+    border-radius: 12px;
+    background-color: #eaf4ff;
+    color: #1680ff;
+    font-size: 20px;
+    line-height: 1.4;
+    font-weight: 600;
+}
+
+.product-header h2 {
+    width: 100%;
+    margin: 0 0 16px;
+    font-size: 48px;
+    line-height: 1.2;
+    font-weight: 700;
+    text-align: center;
+}
+
+.product-header p {
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+    font-size: 20px;
+    line-height: 1.6;
+    text-align: center;
+}
+
+/* Grid 4 kolom + garis pemisah */
+
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0;
+}
+
+.product-item {
+    min-width: 0;
+    padding: 32px 44px;
+    text-align: center;
+    border-right: 1px solid #E5E5E5;
+    border-bottom: 1px solid #E5E5E5;
+}
+
+/* Kolom ke-4 tidak butuh garis kanan, baris ke-2 tidak butuh garis bawah */
+.product-item:nth-child(4n) {
+    border-right: 0;
+}
+
+.product-item:nth-child(n+5) {
+    border-bottom: 0;
+}
+
+.product-image {
+    width: 240px;
+    max-width: 100%;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    border-radius: 8px;
+    margin: 0 auto 24px;
+}
+
+.product-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.product-info h3 {
+    margin-bottom: 8px;
+    font-size: 20px;
+    line-height: 1.3;
+    font-weight: 600;
+}
+
+.product-info p {
+    margin-bottom: 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #555555;
+}
+
+.product-action {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.btn-gradient {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 16px 20px;
+
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 8px;
+    background: linear-gradient(to bottom, #1858C3, #1E80DF);
+    color: #EAF4FF;
+
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.4;
+    text-decoration: none;
+
+    box-shadow:
+        0 1px 2px rgba(12, 37, 57, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.18);
+
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.btn-gradient .btn-arrow {
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+}
+
+/* Hover */
+.btn-gradient:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+    box-shadow:
+        0 8px 20px rgba(24, 88, 195, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    color: #ffffff;
+}
+
+.btn-gradient:hover .btn-arrow {
+    transform: translateX(4px);
+}
+
+/* Ditekan */
+.btn-gradient:active {
+    transform: translateY(0);
+    filter: brightness(0.96);
+    box-shadow: 0 1px 2px rgba(12, 37, 57, 0.2);
+}
+
+/* Navigasi keyboard */
+.btn-gradient:focus-visible {
+    outline: 3px solid rgba(30, 128, 223, 0.45);
+    outline-offset: 3px;
+}
+
+/* Tablet */
+
+@media (max-width: 991.98px) {
+    .product-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    /* 2 kolom: garis kanan di kolom genap dihapus, garis bawah di baris terakhir dihapus */
+    .product-item:nth-child(n) {
+        border-right: 1px solid #E5E5E5;
+        border-bottom: 1px solid #E5E5E5;
+    }
+
+    .product-item:nth-child(2n) {
+        border-right: 0;
+    }
+
+    .product-item:nth-child(n+7) {
+        border-bottom: 0;
+    }
+
+    .product-header h2 {
+        font-size: 40px;
+    }
+}
+
+/* HP */
+
+@media (max-width: 575.98px) {
+    .product-section {
+        padding: 56px 0;
+    }
+
+    .product-header {
+        margin-bottom: 32px;
+    }
+
+    .product-badge {
+        font-size: 12px;
+        padding: 5px 10px;
+        margin-bottom: 12px;
+    }
+
+    .product-header h2 {
+        font-size: 32px;
+        margin-bottom: 12px;
+    }
+
+    .product-header p {
+        max-width: 260px;
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .product-item {
+        padding: 24px 12px;
+    }
+
+    .product-info h3 {
+        font-size: 16px;
+    }
+
+    .product-info p {
+        font-size: 13px;
+    }
+}
+
+
+/* =====================================================
+   6. LAYANAN
+===================================================== */
+
+.services-section {
+    padding: 64px 0;
+}
+
+.services-title {
+    margin-top: 20px;
+    margin-bottom: 8px;
+    font-size: 48px;
+    font-weight: 700;
+    color: #000000;
+}
+
+.services-description {
+    margin-bottom: 40px;
+    margin-right: 32px;
+    width: 440px;
+    height: 56px;
+    font-size: 20px;
+    line-height: 1.4;
+    color: #000000;
+}
+
+/* Dua foto berdempetan */
+.service-cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0;
+    overflow: hidden;
+    border-radius: 18px;
+}
+
+.service-card {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    width: 100%;
+    aspect-ratio: 420 / 600;
+    min-width: 0;
+    overflow: hidden;
+    border-radius: 0;
+    background-color: #555;
+    background-size: cover;
+    color: #fff;
+}
+
+/* Overlay gelap */
+.service-card::before {
+    position: absolute;
+    inset: 0;
+    content: "";
+    background: linear-gradient(to top,
+            rgba(0, 0, 0, 0.75),
+            rgba(0, 0, 0, 0.05));
+}
+
+/* Posisi foto konsultasi */
+.service-card-konsultasi {
+    background-position: 25% center;
+}
+
+/* Posisi foto pemesanan */
+.service-card-pemesanan {
+    background-position: center;
+}
+
+.service-card-content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    padding: 20px 16px;
+    text-align: center;
+}
+
+.service-card-content h3 {
+    padding-left: 28px;
+    padding-right: 28px;
+    padding-bottom: 16px;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.2;
+    text-align: left;
+}
+
+.service-card-content p {
+    padding-left: 28px;
+    padding-right: 28px;
+    padding-bottom: 40px;
+    text-align: left;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1.4;
+}
+
+/* Tablet kecil */
+@media (max-width: 767.98px) {
+    .services-section {
+        padding: 56px 0;
+    }
+
+    .services-title {
+        font-size: 32px;
+    }
+
+    .service-card {
+        min-height: 260px;
+    }
+}
+
+/* HP */
+@media (max-width: 575.98px) {
+    .service-cards {
+        gap: 10px;
+    }
+
+    .service-card {
+        min-height: 240px;
+        border-radius: 12px;
+    }
+
+    .service-card-content {
+        padding: 12px 8px;
+    }
+
+    .service-card-content h3 {
+        font-size: 15px;
+    }
+
+    .service-card-content p {
+        font-size: 11px;
+    }
+}
+
+
+/* =====================================================
+   7. TESTIMONI
+===================================================== */
+
+/* TESTIMONIAL CONTROLS */
+
+.testimonial-controls {
+    display: flex;
+    gap: 8px;
+    margin-top: 24px;
+}
+
+.testimonial-controls button {
+    width: 38px;
+    height: 38px;
+    border: 1px solid #1680ff;
+    border-radius: 50%;
+    background: transparent;
+    color: #1680ff;
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+    transition: all 0.1s ease;
+}
+
+.testimonial-controls button:hover {
+    background: #1680ff;
+    color: #ffffff;
+}
+
+.testimonials-section {
+    padding: 64px 0 72px;
+    overflow: hidden;
+}
+
+.testimonial-layout {
+    display: grid;
+    grid-template-columns: 180px minmax(0, 1fr);
+    align-items: center;
+    gap: 24px;
+}
+
+/* TESTIMONIAL INTRO */
+
+.testimonial-intro h2 {
+    font-size: 22px;
+    line-height: 1.25;
+    font-weight: 700;
+    color: #000000;
+}
+
+.quote-mark {
+    display: block;
+    height: 38px;
+    margin-right: 24px;
+    font-size: 64px;
+    line-height: 1;
+    font-weight: 700;
+    color: #000000;
+}
+
+/* TESTIMONIAL TRACK */
+
+.testimonial-track {
+    width: 100%;
+    min-width: 0;
+    overflow: hidden;
+    padding: 8px 4px 16px;
+}
+
+.testimonial-track-inner {
+    display: flex;
+    width: max-content;
+    animation: testimonialSlide 35s linear infinite;
+}
+
+/* TESTIMONIAL GROUP */
+
+.testimonial-group {
+    display: flex;
+    flex-shrink: 0;
+    gap: 16px;
+    padding-right: 16px;
+}
+
+/* TESTIMONIAL CARD */
+
+.testimonial-card {
+    flex: 0 0 175px;
+    min-height: 205px;
+    padding: 36px 24px;
+    border-radius: 16px;
+    background: #EBEEF3;
+}
+
+/* FOTO BUNDAR */
+
+.testimonial-avatar {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    margin-bottom: 16px;
+    overflow: hidden;
+    border-radius: 50%;
+    background-color: #D6DCE6;
+}
+
+.testimonial-avatar img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    pointer-events: none;
+    -webkit-user-drag: none;
+    user-select: none;
+}
+
+/* BINTANG */
+
+.testimonial-stars {
+    margin-bottom: 20px;
+    color: #ff8745;
+    font-size: 16px;
+    line-height: 1;
+    letter-spacing: 2px;
+}
+
+/* ISI TESTIMONI */
+
+.testimonial-card blockquote {
+    margin-bottom: 12px;
+    font-size: 13px;
+    line-height: 1.5;
+    font-weight: 600;
+    color: #000000;
+}
+
+/* NAMA PELANGGAN */
+
+.testimonial-author {
+    margin: 0;
+    color: #666666;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+/* AUTO SLIDE ANIMATION */
+
+@keyframes testimonialSlide {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+/* RESPONSIVE TABLET & MOBILE */
+
+@media (max-width: 768px) {
+
+    .testimonial-layout {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .testimonial-intro h2 {
+        font-size: 22px;
+    }
+
+    .testimonial-track-inner {
+        animation-duration: 32s;
+    }
+
+    .testimonial-card {
+        flex-basis: 175px;
+    }
+
+}
+
+/* REDUCE MOTION ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .testimonial-track-inner {
+        animation: none;
+    }
+
+}
+
+
+/* Tablet kecil */
+@media (max-width: 767.98px) {
+    .testimonial-layout {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .testimonial-intro h2 {
+        max-width: 300px;
+    }
+
+    .testimonial-controls {
+        margin-top: 16px;
+    }
+
+    .testimonial-card {
+        flex-basis: 170px;
+    }
+}
+
+/* HP */
+@media (max-width: 575.98px) {
+    .testimonial-layout {
+        gap: 12px;
+    }
+}
+
+
+/* =====================================================
+   8. FAQ
+===================================================== */
+
+.faq-section {
+    padding: 80px 0;
+    background-color: #ffffff;
+}
+
+.faq-heading {
+    max-width: 420px;
+    margin: 0 auto 48px;
+    text-align: center;
+}
+
+.faq-subtitle {
+    display: inline-block;
+    width: fit-content;
+    max-width: none;
+    white-space: nowrap;
+    padding: 6px 20px;
+    margin: 0 auto 16px;
+    border-radius: 12px;
+    background-color: #eaf4ff;
+    color: #1680ff;
+    font-size: 20px;
+    line-height: 1.4;
+    font-weight: 600;
+}
+
+.faq-heading h2 {
+    margin-bottom: 12px;
+    color: #000000;
+    font-family: 'SF Pro Display', sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.17;
+}
+
+.faq-heading p {
+    margin: 0;
+    color: #000000;
+    font-family: 'SF Pro Display', sans-serif;
+    font-size: 18px;
+    line-height: 28px;
+}
+
+.faq-list {
+    width: 100%;
+    max-width: 860px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Kartu */
+.faq-item {
+    position: relative;
+    display: flex;
+    align-items: stretch;
+    gap: 16px;
+    padding: 12px;
+    background-color: #ffffff;
+    border: 1px solid #E5E7EB;
+    border-radius: 24px;
+    transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+
+.faq-item:not(.active):hover {
+    border-color: #CBD2DB;
+}
+
+.faq-item.active {
+    background-color: #FCFCFD;
+    border-color: #DDE6EF;
+}
+
+/* Kotak nomor (01, 02, ...) */
+.faq-number {
+    flex: 0 0 72px;
+    min-height: 86px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #E8E8E8;
+    border-radius: 12px;
+    background-color: #F4F4F4;
+    color: #333333;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 28px;
+    transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+.faq-item.active .faq-number {
+    border-color: #D1EDFF;
+    background-color: #D1EDFF;
+    color: #1170E4;
+}
+
+/* Kolom kanan: pertanyaan + jawaban */
+.faq-body {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.faq-question {
+    width: 100%;
+    padding: 0 56px 0 0;
+
+    border: none;
+    background: transparent;
+    color: #2B2B2B;
+
+    text-align: left;
+    font-family: 'SF Pro Display', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 28px;
+
+    cursor: pointer;
+    transition: padding-top 0.35s ease, color 0.25s ease;
+}
+
+.faq-question:focus-visible {
+    outline: 2px solid #1680ff;
+    outline-offset: 4px;
+    border-radius: 8px;
+}
+
+.faq-item.active .faq-question {
+    padding-top: 16px;
+    color: #0A3F91;
+}
+
+/* Panah (posisi di tengah kartu, sisi kanan) */
+.faq-chevron {
+    position: absolute;
+    top: 50%;
+    right: 29px;
+    width: 12px;
+    height: 12px;
+
+    border-right: 2px solid #1F2632;
+    border-bottom: 2px solid #1F2632;
+
+    transform: translateY(-70%) rotate(45deg);
+    transition: transform 0.3s ease;
+    pointer-events: none;
+}
+
+.faq-item.active .faq-chevron {
+    transform: translateY(-30%) rotate(225deg);
+}
+
+/* Jawaban (dropdown) */
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+}
+
+.faq-answer-inner {
+    padding: 8px 56px 16px 0;
+}
+
+.faq-answer p {
+    margin: 0;
+    color: #000000;
+    font-family: 'SF Pro Display', sans-serif;
+    font-size: 18px;
+    line-height: 28px;
+}
+
+/* Tablet kecil dan HP */
+@media (max-width: 767.98px) {
+    .faq-section {
+        padding: 56px 0;
+    }
+
+    .faq-heading {
+        margin-bottom: 28px;
+        padding: 0 12px;
+    }
+
+    .faq-heading h2 {
+        font-size: 32px;
+        line-height: 1.2;
+    }
+
+    .faq-heading p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .faq-list {
+        gap: 12px;
+    }
+
+    .faq-item {
+        gap: 12px;
+        padding: 10px;
+        border-radius: 18px;
+    }
+
+    .faq-number {
+        flex-basis: 48px;
+        min-height: 56px;
+        border-radius: 10px;
+        font-size: 16px;
+    }
+
+    .faq-question {
+        padding-right: 36px;
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    .faq-item.active .faq-question {
+        padding-top: 10px;
+    }
+
+    .faq-chevron {
+        right: 18px;
+        width: 10px;
+        height: 10px;
+    }
+
+    .faq-answer-inner {
+        padding: 6px 36px 10px 0;
+    }
+
+    .faq-answer p {
+        font-size: 14px;
+        line-height: 22px;
+    }
+}
+
+/* HP: badge dikecilkan supaya tidak melebihi layar */
+@media (max-width: 575.98px) {
+    .faq-subtitle {
+        padding: 5px 12px;
+        font-size: 12px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .faq-item,
+    .faq-number,
+    .faq-question,
+    .faq-answer,
+    .faq-chevron {
+        transition: none;
+    }
+}
+
+
+/* =====================================================
+   9. ARTIKEL & TIPS
+===================================================== */
+
+.articles-section {
+    padding: 64px 0;
+}
+
+/* Heading */
+
+.section-heading {
+    max-width: 440px;
+    margin: 0 auto 32px;
+    text-align: center;
+}
+
+.section-heading h2 {
+    margin-bottom: 8px;
+    font-size: 48px;
+    font-weight: 700;
+    color: #000000;
+}
+
+.section-heading p {
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+/* Frame luar */
+.article-frame {
+    padding: 8px;
+    background-color: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.10);
+    height: 100%;
+}
+
+/* Card di dalam frame */
+.article-card {
+    height: 100%;
+    overflow: hidden;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+/* Gambar artikel */
+.article-image {
+    display: block;
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+/* Konten artikel */
+.article-content {
+    padding: 16px;
+}
+
+.article-content p {
+    color: #000000;
+    margin: 8px 8px;
+    font-family: 'SF Pro Display', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.6;
+}
+
+.article-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 8px 12px;
+    min-height: 36px;
+    box-sizing: border-box;
+
+    border-radius: 20px;
+    background: #0054B4;
+    color: #ffffff;
+
+    margin-left: 8px;
+    font-size: 16px;
+    line-height: 1;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.article-link:hover {
+    background: #496080;
+    color: #ffffff;
+}
+
+/* Tombol gradasi biru (Baca Semua Artikel, Lihat Semua Produk, dll) */
+.articles-action {
+    display: flex;
+    justify-content: center;
+    margin-top: 36px;
+}
+
+.btn-gradient {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 16px 20px;
+
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 8px;
+    background: linear-gradient(to bottom, #1858C3, #1E80DF);
+    color: #EAF4FF;
+
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.4;
+    text-decoration: none;
+
+    box-shadow:
+        0 1px 2px rgba(12, 37, 57, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.18);
+
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.btn-gradient .btn-arrow {
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+}
+
+/* Hover */
+.btn-gradient:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+    box-shadow:
+        0 8px 20px rgba(24, 88, 195, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    color: #ffffff;
+}
+
+.btn-gradient:hover .btn-arrow {
+    transform: translateX(4px);
+}
+
+/* Ditekan */
+.btn-gradient:active {
+    transform: translateY(0);
+    filter: brightness(0.96);
+    box-shadow: 0 1px 2px rgba(12, 37, 57, 0.2);
+}
+
+/* Navigasi keyboard */
+.btn-gradient:focus-visible {
+    outline: 3px solid rgba(30, 128, 223, 0.45);
+    outline-offset: 3px;
+}
+
+/* Tablet kecil */
+@media (max-width: 767.98px) {
+    .section-heading h2 {
+        font-size: 28px;
+    }
+
+    .article-image {
+        height: 160px;
+    }
+}
+
+/* HP */
+@media (max-width: 575.98px) {
+    .article-image {
+        height: 190px;
+    }
+
+    .btn-articles {
+        width: 280px;
+        height: 56px;
+        font-size: 18px;
+    }
+}
+
+
+/* =====================================================
+   10. LOKASI (PETA INDONESIA)
+   Titik cabang = link ke Google Maps.
+   Hover/fokus menampilkan kartu alamat.
+===================================================== */
+
+
+/* LOCATION SECTION */
+.location-section {
+    position: relative;
+    width: 100%;
+    background: #ffffff;
+}
+
+.indonesia-map {
+    display: block;
+    width: 100%;
+    height: auto;
+    pointer-events: none;
+    user-select: none;
+}
+
+/* Titik jangkar ukuran 0, tepat di tengah pin */
+.map-marker {
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    color: #18181C;
+    text-decoration: none;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.map-marker:hover,
+.map-marker:focus-visible {
+    z-index: 5;
+}
+
+.map-marker:focus-visible {
+    outline: none;
+}
+
+.map-marker-pin {
+    position: absolute;
+    top: -13px;
+    left: -13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+    transition: box-shadow 0.2s ease;
+}
+
+.map-marker-dot {
+    display: block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #0057cc;
+}
+
+/* Stroke biru baru muncul saat hover / fokus */
+.map-marker:hover .map-marker-pin,
+.map-marker:focus-visible .map-marker-pin {
+    box-shadow:
+        inset 0 0 0 2px #1680ff,
+        0 2px 8px rgba(0, 0, 0, 0.18);
+}
+
+/* Posisi pin = pusat pin di Figma, dalam persen dari Location.png */
+.marker-berau,
+.marker-one {
+    left: 50.66%;
+    top: 33.17%;
+}
+
+.marker-balikpapan,
+.marker-two {
+    left: 48.01%;
+    top: 50%;
+}
+
+.marker-malang,
+.marker-three {
+    left: 39.44%;
+    top: 79%;
+}
+
+/* Kartu alamat (muncul saat hover / fokus) */
+.location-card {
+    position: absolute;
+    top: -60px;
+    left: 42px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 312px;
+    min-height: 124px;
+    padding: 12px;
+
+    background: #ffffff;
+    border: 1px solid #F4F4F5;
+    border-radius: 12px;
+    box-shadow:
+        0 1px 2px rgba(12, 37, 57, 0.2),
+        0 0 0 1px rgba(12, 37, 57, 0.1);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.map-marker:hover .location-card,
+.map-marker:focus-visible .location-card {
+    opacity: 1;
+    visibility: visible;
+}
+
+.location-card-image {
+    flex-shrink: 0;
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.location-card-content {
+    display: block;
+    min-width: 0;
+    color: #18181C;
+}
+
+.location-card-title {
+    display: block;
+    margin: 0 0 4px;
+    font-family: 'SF Pro Display', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.location-card-address {
+    display: block;
+    margin: 0;
+    font-family: 'SF Pro Display', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.45;
+}
+
+/* Tablet kecil dan HP: pin dikecilkan, kartu muncul di atas pin */
+@media (max-width: 767.98px) {
+    .map-marker-pin {
+        top: -9px;
+        left: -9px;
+        width: 18px;
+        height: 18px;
+    }
+
+    .map-marker-dot {
+        width: 8px;
+        height: 8px;
+    }
+
+    .location-card {
+        top: auto;
+        bottom: 16px;
+        left: 50%;
+        width: 240px;
+        min-height: 0;
+        gap: 10px;
+        padding: 10px;
+        transform: translateX(-50%);
+    }
+
+    .location-card-image {
+        width: 64px;
+        height: 64px;
+    }
+
+    .location-card-title {
+        font-size: 14px;
+    }
+
+    .location-card-address {
+        font-size: 12px;
+    }
+}
+
+/* =========================
+   CTA SECTION
+========================= */
+
+.cta-section {
+    width: 100%;
+    padding: 30px 0;
+    background-color: #ffffff;
+}
+
+.cta-content {
+    position: relative;
+    width: calc(100% - 80px);
+    max-width: 1216px;
+    min-height: 320px;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    color: #ffffff;
+
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.44),
+            rgba(0, 0, 0, 0.44)),
+        url("../img/cta/cta.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    border-radius: 22px;
+    overflow: hidden;
+}
+
+.cta-label {
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.cta-content h2 {
+    max-width: 650px;
+    margin-bottom: 30px;
+
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.14;
+    color: #ffffff;
+}
+
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    padding: 12px 20px;
+
+    background-color: #ffffff;
+    color: #292929;
+
+    border-radius: 10px;
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: all 0.2s ease;
+}
+
+.cta-button:hover {
+    background-color: #eeeeee;
+    color: #292929;
+    transform: translateY(-2px);
+}
+
+.cta-button i {
+    font-size: 16px;
+}
+
+/* =====================================================
+   12. FOOTER
+===================================================== */
+
+.site-footer {
+    padding: 80px 0 28px;
+    background: #001019;
+    color: #e6e6e7;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: minmax(240px, 333px) minmax(0, 560px);
+    justify-content: space-between;
+    gap: 64px;
+}
+
+/* Brand */
+
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-logo {
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.footer-logo img {
+    display: block;
+    width: 100px;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.footer-description {
+    max-width: 333px;
+    margin: 0;
+    color: #aeafb2;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.footer-socials {
+    display: flex;
+    gap: 8px;
+    margin-top: 24px;
+}
+
+.footer-socials a {
+    display: inline-flex;
+    width: 36px;
+    height: 36px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.16);
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.footer-socials a:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.footer-socials a img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    display: block;
+    color: #ffffff;
+}
+
+/* Kolom link */
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 0.8fr 1.5fr 1fr;
+    gap: 32px;
+}
+
+.footer-column h3 {
+    margin-bottom: 24px;
+    color: #7d8187;
+    font-size: 12px;
+    line-height: 1.5;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+}
+
+.footer-column ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.footer-column a {
+    color: #e6e6e7;
+    font-size: 13px;
+    line-height: 1.6;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+    transition: color 0.2s ease;
+}
+
+.footer-column a:hover {
+    color: #7dbeff;
+}
+
+/* Kolom kontak */
+
+.footer-contact ul {
+    gap: 16px;
+}
+
+.footer-contact li {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.footer-contact li span {
+    color: #7d8187;
+    font-size: 12px;
+}
+
+.footer-contact li a {
+    color: #e6e6e7;
+    font-size: 13px;
+}
+
+/* Newsletter */
+
+.footer-newsletter {
+    grid-column: 1 / -1;
+    margin-top: 24px;
+}
+
+.footer-newsletter h3 {
+    margin-bottom: 16px;
+    color: #aeafb2;
+    font-size: 14px;
+    line-height: 1.5;
+    font-weight: 500;
+}
+
+.newsletter-form {
+    display: flex;
+    width: 100%;
+    min-height: 44px;
+}
+
+.newsletter-form input {
+    width: 100%;
+    min-width: 0;
+    padding: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-right: none;
+    border-radius: 0;
+    outline: none;
+    background: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+    font: inherit;
+    font-size: 13px;
+}
+
+.newsletter-form input::placeholder {
+    color: #c6c8cc;
+}
+
+.newsletter-form input:focus {
+    border-color: #7dbeff;
+}
+
+.newsletter-form button {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 12px 16px;
+    border: none;
+    background: #ffffff;
+    color: #141415;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.newsletter-form button:hover {
+    background: #eaf4ff;
+}
+
+.newsletter-message {
+    min-height: 18px;
+    margin: 8px 0 0;
+    color: #aeafb2;
+    font-size: 12px;
+}
+
+/* Copyright */
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-top: 64px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.footer-bottom p,
+.footer-bottom a {
+    margin: 0;
+    color: #aeafb2;
+    font-size: 12px;
+    line-height: 1.6;
+    text-decoration: none;
+}
+
+.footer-bottom a:hover {
+    color: #ffffff;
+}
+
+/* Tablet */
+@media (max-width: 991.98px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 48px;
+    }
+
+    .footer-content {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+/* HP */
+@media (max-width: 575.98px) {
+    .site-footer {
+        padding-top: 48px;
+    }
+
+    .footer-content {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 32px 20px;
+    }
+
+    .footer-newsletter {
+        grid-column: 1 / -1;
+        margin-top: 0;
+    }
+
+    .footer-bottom {
+        align-items: flex-start;
+        flex-direction: column;
+        margin-top: 40px;
+    }
+}

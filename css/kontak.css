@@ -1,0 +1,558 @@
+/* =====================================================
+   HALAMAN KONTAK  (Figma: LP_Contact)
+   Dipakai BERSAMA css/style.css (navbar, hero, CTA banner, footer).
+   Urutan di file ini = urutan section di kontak.html:
+   1. Hero versi halaman kontak
+   2. Kartu form (menimpa bagian bawah hero)
+   3. Kontak cabang
+===================================================== */
+
+
+/* =====================================================
+   1. HERO (versi halaman kontak)
+   Isinya cuma navbar, jadi tingginya dikunci 900px seperti Figma.
+===================================================== */
+
+.hero-contact {
+    min-height: 900px;
+    background-image:
+        linear-gradient(to bottom,
+            rgba(0, 0, 0, 0.78) 0%,
+            rgba(0, 0, 0, 0.10) 45%,
+            rgba(0, 0, 0, 0.35) 100%),
+        url("../img/hero/kontak.png");
+}
+
+@media (max-width: 991.98px) {
+    .hero-contact {
+        min-height: 520px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .hero-contact {
+        min-height: 420px;
+    }
+}
+
+
+/* =====================================================
+   2. KARTU FORM
+   Kartu naik menimpa 350px bagian bawah hero (sesuai Figma).
+===================================================== */
+
+.contact-wrap {
+    position: relative;
+    z-index: 2;
+    margin-top: -350px;
+}
+
+/* Lebar kartu 1328px di layar 1440px */
+.contact-wrap>.container {
+    max-width: 1440px;
+    padding-left: 56px;
+    padding-right: 56px;
+}
+
+.contact-card {
+    display: grid;
+    grid-template-columns: minmax(0, 464px) minmax(0, 1fr);
+    gap: 72px;
+    padding: 64px;
+    border-radius: 24px;
+    background: #ffffff;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* ---------- kolom kiri ---------- */
+
+/* Badge setinggi 40px, tanpa jarak tambahan (jarak ke judul diatur di .contact-title) */
+.contact-intro .section-badge {
+    display: block;
+    width: fit-content;
+    margin-bottom: 0;
+}
+
+.contact-title {
+    margin: 12px 0 0;
+    color: #2B2B2B;
+    font-family: 'SF Pro Display', sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 56px;
+    letter-spacing: -0.02em;
+}
+
+.contact-map {
+    display: block;
+    width: 100%;
+    height: 312px;
+    margin-top: 56px;
+    border-radius: 16px;
+    object-fit: cover;
+    background: #F5EEE3;
+}
+
+/* ---------- form ---------- */
+
+.contact-form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px 20px;
+    align-content: start;
+}
+
+.contact-field {
+    min-width: 0;
+}
+
+.contact-field--full {
+    grid-column: 1 / -1;
+}
+
+.contact-label {
+    display: block;
+    margin-bottom: 8px;
+    color: #3F4A5A;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+}
+
+.contact-input {
+    display: block;
+    width: 100%;
+    height: 52px;
+    padding: 12px 16px;
+
+    border: 1px solid #EBEBEB;
+    border-radius: 12px;
+    outline: none;
+    background: #FCFCFC;
+    color: #1F2937;
+
+    font-family: inherit;
+    font-size: 18px;
+    line-height: 28px;
+
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.contact-input::placeholder {
+    color: #475467;
+    opacity: 1;
+}
+
+.contact-input:focus {
+    border-color: #1680ff;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(22, 128, 255, 0.15);
+}
+
+textarea.contact-input {
+    height: 168px;
+    resize: none;
+}
+
+/* Kolom yang belum diisi setelah klik "Kirim Pesan" */
+.contact-form.was-validated .contact-input:invalid {
+    border-color: #DC3545;
+}
+
+.contact-form.was-validated .contact-input:invalid:focus {
+    box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.15);
+}
+
+.contact-actions {
+    grid-column: 1 / -1;
+    margin-top: 28px;
+}
+
+.contact-actions .btn-gradient {
+    min-width: 160px;
+    height: 52px;
+    padding: 0 22px;
+    border-radius: 8px;
+    font-family: inherit;
+}
+
+/* Pesan setelah kirim */
+.contact-alert {
+    grid-column: 1 / -1;
+    margin: 0;
+    padding: 12px 16px;
+    border-radius: 10px;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.contact-alert[hidden] {
+    display: none;
+}
+
+.contact-alert.is-success {
+    background: #E7F6EC;
+    color: #166534;
+}
+
+.contact-alert.is-error {
+    background: #FDECEC;
+    color: #B42318;
+}
+
+/* Tablet */
+@media (max-width: 991.98px) {
+    .contact-wrap {
+        margin-top: -220px;
+    }
+
+    .contact-wrap>.container {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .contact-card {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 40px 32px;
+    }
+
+    .contact-title {
+        font-size: 36px;
+        line-height: 44px;
+    }
+
+    .contact-map {
+        height: 260px;
+        margin-top: 32px;
+    }
+}
+
+/* HP */
+@media (max-width: 575.98px) {
+    .contact-wrap {
+        margin-top: -140px;
+    }
+
+    .contact-wrap>.container {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .contact-card {
+        padding: 28px 20px;
+        border-radius: 18px;
+    }
+
+    .contact-title {
+        font-size: 28px;
+        line-height: 36px;
+    }
+
+    .contact-form {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .contact-input {
+        font-size: 16px;
+    }
+
+    .contact-actions {
+        margin-top: 8px;
+    }
+
+    .contact-actions .btn-gradient {
+        width: 100%;
+    }
+}
+
+
+/* =====================================================
+   3. KONTAK CABANG
+===================================================== */
+
+.contact-branch {
+    padding: 56px 0;
+    background: #ffffff;
+}
+
+.contact-branch>.container {
+    max-width: 1440px;
+    padding-left: 64px;
+    padding-right: 64px;
+}
+
+.contact-branch-title {
+    max-width: 616px;
+    margin: 0 auto 40px;
+    color: #2B2B2B;
+    font-family: 'SF Pro Display', sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 44px;
+    letter-spacing: -0.02em;
+    text-align: center;
+}
+
+.contact-branch-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.contact-branch-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 24px;
+    text-align: center;
+}
+
+/* Garis pemisah antar kolom */
+.contact-branch-item+.contact-branch-item {
+    border-left: 1px solid #E0E0E0;
+}
+
+.contact-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    margin-bottom: 32px;
+    border-radius: 50%;
+}
+
+.contact-icon svg {
+    width: 32px;
+    height: 32px;
+}
+
+.contact-icon--orange {
+    background: #FFF3E6;
+    color: #FF5A00;
+}
+
+.contact-icon--blue {
+    background: #EAF5FF;
+    color: #1480FF;
+}
+
+.contact-branch-name {
+    margin: 0;
+    color: #2B2B2B;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 28px;
+}
+
+.contact-branch-phone {
+    margin: 8px 0 0;
+    color: #111111;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 28px;
+}
+
+.contact-branch-pic {
+    margin: 4px 0 0;
+    color: #2B2B2B;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+/* Tombol "Hubungi Sekarang" */
+.contact-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 187px;
+    height: 50px;
+    margin-top: 24px;
+
+    border: 1px solid transparent;
+    border-radius: 8px;
+    color: #ffffff;
+
+    font-size: 18px;
+    font-weight: 500;
+    text-decoration: none;
+
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.contact-btn--orange {
+    border-color: #D95F0A;
+    background: linear-gradient(to bottom, #FF9248, #F5700F);
+}
+
+.contact-btn--blue {
+    border-color: #0A66D1;
+    background: linear-gradient(to bottom, #3BA0FF, #0A78F2);
+}
+
+.contact-btn:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.06);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    color: #ffffff;
+}
+
+.contact-btn:active {
+    transform: translateY(0);
+    filter: brightness(0.96);
+    box-shadow: none;
+}
+
+.contact-btn:focus-visible {
+    outline: 3px solid rgba(22, 128, 255, 0.4);
+    outline-offset: 3px;
+}
+
+/* =========================
+   CTA SECTION
+========================= */
+
+.cta-section {
+    width: 100%;
+    padding: 30px 0;
+    background-color: #ffffff;
+}
+
+.cta-content {
+    position: relative;
+    width: calc(100% - 80px);
+    max-width: 1216px;
+    min-height: 320px;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    color: #ffffff;
+
+    background-image:
+        linear-gradient(
+            rgba(0, 0, 0, 0.44),
+            rgba(0, 0, 0, 0.44)
+        ),
+        url("../img/cta/cta.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    border-radius: 22px;
+    overflow: hidden;
+}
+
+.cta-label {
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.cta-content h2 {
+    max-width: 650px;
+    margin-bottom: 30px;
+
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.14;
+    color: #ffffff;
+}
+
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    padding: 12px 20px;
+
+    background-color: #ffffff;
+    color: #292929;
+
+    border-radius: 10px;
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: all 0.2s ease;
+}
+
+.cta-button:hover {
+    background-color: #eeeeee;
+    color: #292929;
+    transform: translateY(-2px);
+}
+
+.cta-button i {
+    font-size: 16px;
+}
+
+/* Tablet */
+@media (max-width: 991.98px) {
+    .contact-branch>.container {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .contact-branch-title {
+        font-size: 32px;
+        line-height: 40px;
+    }
+
+    .contact-branch-item {
+        padding: 0 12px;
+    }
+
+    .contact-branch-phone {
+        font-size: 20px;
+    }
+
+    .contact-btn {
+        width: 100%;
+        max-width: 187px;
+    }
+}
+
+/* HP: kolom ditumpuk, garis pemisah jadi horizontal */
+@media (max-width: 575.98px) {
+    .contact-branch {
+        padding: 40px 0;
+    }
+
+    .contact-branch>.container {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .contact-branch-title {
+        margin-bottom: 28px;
+        font-size: 26px;
+        line-height: 34px;
+    }
+
+    .contact-branch-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-branch-item {
+        padding: 28px 0;
+    }
+
+    .contact-branch-item+.contact-branch-item {
+        border-top: 1px solid #E0E0E0;
+        border-left: 0;
+    }
+
+    .contact-icon {
+        margin-bottom: 20px;
+    }
+}

@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Kontak | Alam Indah</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS kita: style.css dulu (navbar, hero, CTA, footer), baru kontak.css -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/kontak.css">
+</head>
+
+<body id="top">
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg hero-navbar">
+        <div class="container">
+
+            <a class="navbar-brand" href="#">
+                <img src="img/logo/Alam-Indah.png" alt="Logo Alam Indah" class="logo">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarAlamIndah"
+                aria-controls="navbarAlamIndah" aria-expanded="false" aria-label="Buka navigasi">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarAlamIndah">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#produk">Produk</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#layanan">Layanan</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="cabang.html">Cabang</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="kontak.html">Kontak</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="btn btn-light btn-sm nav-button" href="#login">
+                            Login Admin ↗
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="btn btn-primary btn-sm nav-button" href="#produk">
+                            Alam Indah ↗
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+
+
+    <!-- HERO SECTION -->
+    <section class="hero hero-contact">
+
+        <!-- HERO CONTENT -->
+        <div class="container hero-content">
+        </div>
+
+    </section>
+    <!-- END HERO SECTION -->
+
+
+    <!-- FORM KONTAK (kartu putih yang menimpa hero) -->
+    <section class="contact-wrap" id="formKontak">
+        <div class="container">
+            <div class="contact-card">
+
+                <!-- Kiri: judul + peta -->
+                <div class="contact-intro">
+                    <span class="section-badge">Lorem Ipsum Dolor</span>
+                    <h1 class="contact-title">
+                        Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi..
+                    </h1>
+                    <img src="img/peta/kontak.png" alt="Peta lokasi Alam Indah" class="contact-map">
+                </div>
+
+                <!-- Kanan: form -->
+                <form class="contact-form" id="contactForm" novalidate>
+
+                    <div class="contact-field">
+                        <label class="contact-label" for="firstName">First name*</label>
+                        <input type="text" class="contact-input" id="firstName" name="firstName"
+                            placeholder="Enter first name" autocomplete="given-name" required>
+                    </div>
+
+                    <div class="contact-field">
+                        <label class="contact-label" for="lastName">Last name*</label>
+                        <input type="text" class="contact-input" id="lastName" name="lastName"
+                            placeholder="Enter last name" autocomplete="family-name" required>
+                    </div>
+
+                    <div class="contact-field">
+                        <label class="contact-label" for="email">Email*</label>
+                        <input type="email" class="contact-input" id="email" name="email"
+                            placeholder="Enter your email" autocomplete="email" required>
+                    </div>
+
+                    <div class="contact-field">
+                        <label class="contact-label" for="phone">Phone*</label>
+                        <input type="tel" class="contact-input" id="phone" name="phone"
+                            placeholder="Enter your phone number" autocomplete="tel" required>
+                    </div>
+
+                    <div class="contact-field contact-field--full">
+                        <label class="contact-label" for="service">Layanan</label>
+                        <input type="text" class="contact-input" id="service" name="service"
+                            placeholder="Contoh: Konsultasi gratis, pemesanan proyek">
+                    </div>
+
+                    <div class="contact-field contact-field--full">
+                        <label class="contact-label" for="message">Message*</label>
+                        <textarea class="contact-input" id="message" name="message"
+                            placeholder="Enter your message" required></textarea>
+                    </div>
+
+                    <div class="contact-actions">
+                        <button type="submit" class="btn-gradient">
+                            Kirim Pesan
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+                        </button>
+                    </div>
+
+                    <p class="contact-alert" id="formAlert" role="status" aria-live="polite" hidden></p>
+
+                </form>
+
+            </div>
+        </div>
+    </section>
+    <!-- END FORM KONTAK -->
+
+
+    <!-- KONTAK CABANG -->
+    <section class="contact-branch" id="kontak">
+        <div class="container">
+
+            <h2 class="contact-branch-title">
+                Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi..
+            </h2>
+
+            <div class="contact-branch-grid">
+
+                <div class="contact-branch-item">
+                    <div class="contact-icon contact-icon--orange">
+                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>
+                    </div>
+                    <p class="contact-branch-name">Alam Indah Malang</p>
+                    <p class="contact-branch-phone">+62123456789</p>
+                    <p class="contact-branch-pic">(Kak Namzah)</p>
+                    <a href="https://wa.me/62123456789" class="contact-btn contact-btn--orange"
+                        target="_blank" rel="noopener noreferrer">Hubungi Sekarang</a>
+                </div>
+
+                <div class="contact-branch-item">
+                    <div class="contact-icon contact-icon--blue">
+                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>
+                    </div>
+                    <p class="contact-branch-name">Alam Indah Berau</p>
+                    <p class="contact-branch-phone">+6285234352043</p>
+                    <p class="contact-branch-pic">(Bapak Nanang)</p>
+                    <a href="https://wa.me/6285234352043" class="contact-btn contact-btn--blue"
+                        target="_blank" rel="noopener noreferrer">Hubungi Sekarang</a>
+                </div>
+
+                <div class="contact-branch-item">
+                    <div class="contact-icon contact-icon--orange">
+                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>
+                    </div>
+                    <p class="contact-branch-name">Alam Indah Balikpapan</p>
+                    <p class="contact-branch-phone">+123321123321</p>
+                    <p class="contact-branch-pic">(Kak Loren)</p>
+                    <a href="https://wa.me/123321123321" class="contact-btn contact-btn--orange"
+                        target="_blank" rel="noopener noreferrer">Hubungi Sekarang</a>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+    <!-- END KONTAK CABANG -->
+
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <p class="cta-label">BUILDING WITH NATURAL STONE</p>
+
+            <h2>Let's build something beautiful with<br> natural stone.</h2>
+
+            <a href="#kontak" class="cta-button">
+                Konsultasi Gratis
+                <i class="bi bi-arrow-right">→</i>
+            </a>
+        </div>
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container footer-container">
+
+            <!-- Brand -->
+            <div class="footer-brand">
+                <a href="index.html" class="footer-logo">
+                    <img src="img/logo/Alam-Indah.png" alt="Alam Indah">
+                </a>
+
+                <p class="footer-description">
+                    Alam Indah menyediakan pilihan batu alam berkualitas
+                    untuk kebutuhan hunian, bangunan komersial, dan berbagai proyek.
+                </p>
+
+                <div class="footer-socials">
+                    <a href="#" aria-label="Instagram Alam Indah"><img src="icons/IG.png" alt=""></a>
+                    <a href="#" aria-label="Facebook Alam Indah"><img src="icons/FB.png" alt=""></a>
+                    <a href="#" aria-label="WhatsApp Alam Indah"><img src="icons/WA.png" alt=""></a>
+                </div>
+            </div>
+
+            <!-- Footer Links -->
+            <div class="footer-content">
+
+                <div class="footer-column">
+                    <h3>NAVIGASI</h3>
+                    <ul>
+                        <li><a href="index.html">Beranda</a></li>
+                        <li><a href="index.html#produk">Produk</a></li>
+                        <li><a href="index.html#layanan">Layanan</a></li>
+                        <li><a href="index.html#testimoni">Testimoni</a></li>
+                        <li><a href="index.html#artikel">Artikel &amp; Tips</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column footer-contact">
+                    <h3>KONTAK</h3>
+                    <ul>
+                        <li>
+                            <span>Malang (Pusat)</span>
+                            <a href="tel:+621358734165">+62 135-8734-165</a>
+                        </li>
+                        <li>
+                            <span>Berau</span>
+                            <a href="tel:+6285234352043">+62 852-3435-2043</a>
+                        </li>
+                        <li>
+                            <span>Balikpapan</span>
+                            <a href="tel:+6282157310589">+62 821-5731-0589</a>
+                        </li>
+                        <li>
+                            <span>Email</span>
+                            <a href="mailto:alam@gmail.com">alam@gmail.com</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>LOKASI</h3>
+                    <ul>
+                        <li><a href="cabang.html">Malang (Pusat)</a></li>
+                        <li><a href="cabang.html">Berau</a></li>
+                        <li><a href="cabang.html">Balikpapan</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="footer-newsletter">
+                    <h3>Dapatkan informasi dan inspirasi batu alam</h3>
+
+                    <form class="newsletter-form" id="newsletterForm">
+                        <label for="newsletterEmail" class="visually-hidden">Alamat email</label>
+                        <input type="email" id="newsletterEmail" name="email" placeholder="Alamat email kamu" required>
+                        <button type="submit" aria-label="Daftar newsletter">Daftar <span>↗</span></button>
+                    </form>
+
+                    <p class="newsletter-message" id="newsletterMessage" aria-live="polite"></p>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Copyright -->
+        <div class="container footer-bottom">
+            <p>© 2026 Alam Indah. Hak cipta dilindungi.</p>
+            <a href="#top">Kembali ke atas ↑</a>
+        </div>
+    </footer>
+
+
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
+    <script src="js/kontak.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

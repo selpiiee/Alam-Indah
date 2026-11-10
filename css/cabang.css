@@ -1,0 +1,408 @@
+/* =====================================================
+   HALAMAN CABANG  (Figma: LP_Location_Aisya)
+   Dipakai BERSAMA css/style.css (navbar, hero, footer).
+   Urutan di file ini = urutan section di cabang.html:
+   1. Hero versi halaman cabang
+   2. Lokasi kami (3 kartu cabang)
+   3. CTA banner
+===================================================== */
+
+
+/* =====================================================
+   1. HERO (versi halaman cabang)
+   Struktur HTML sama dengan beranda, hanya fotonya beda.
+===================================================== */
+
+.hero-location{
+    min-height: 580px;
+    position: relative;
+    overflow: hidden;
+
+    background-image:
+        linear-gradient(to bottom,
+            rgba(0, 0, 0, 0.78) 0%,
+            rgba(0, 0, 0, 0.10) 45%,
+            rgba(0, 0, 0, 0.35) 100%),
+        url("../img/hero/cabang.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+
+/* =====================================================
+   2. LOKASI KAMI
+===================================================== */
+
+.branch-section {
+    padding: 64px 0;
+    background: #ffffff;
+    color: #111111;
+}
+
+/* Lebar konten 1312px di layar 1440px (sama dengan Figma) */
+.branch-section>.container {
+    max-width: 1440px;
+    padding-left: 64px;
+    padding-right: 64px;
+}
+
+/* Heading */
+
+.branch-header {
+    max-width: 640px;
+    margin: 0 auto 52px;
+    text-align: center;
+}
+
+.branch-header h2 {
+    margin: 0 0 12px;
+    color: #262626;
+    font-family: 'SF Pro Display', sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 56px;
+    letter-spacing: -0.02em;
+}
+
+.branch-header p {
+    margin: 0;
+    color: #000000;
+    font-size: 20px;
+    line-height: 28px;
+}
+
+/* Grid 3 kartu */
+
+.branch-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.branch-card {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: 24px;
+    background: #F4F4F4;
+}
+
+/* Foto + nama kota */
+
+.branch-photo {
+    position: relative;
+    aspect-ratio: 424 / 440;
+    overflow: hidden;
+}
+
+.branch-photo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Gelap di bagian bawah supaya nama kota terbaca */
+.branch-photo::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top,
+            rgba(0, 0, 0, 0.65) 0%,
+            rgba(0, 0, 0, 0.35) 35%,
+            rgba(0, 0, 0, 0) 70%);
+}
+
+.branch-name {
+    position: absolute;
+    right: 24px;
+    bottom: 24px;
+    left: 24px;
+    z-index: 1;
+    margin: 0;
+    color: #ffffff;
+    font-family: 'SF Pro Display', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 44px;
+    letter-spacing: -0.02em;
+}
+
+/* Alamat + tombol */
+
+.branch-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    min-height: 218px;
+    padding: 20px 24px;
+}
+
+.branch-address {
+    margin: 0;
+    color: #1F2937;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 28px;
+}
+
+.branch-note {
+    display: block;
+    margin-top: 4px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+/* Tombol "Lihat di maps" (oranye, selalu di dasar kartu) */
+.btn-maps {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    height: 42px;
+    margin-top: auto;
+
+    border: 1px solid #E6772B;
+    border-radius: 8px;
+    background: linear-gradient(to bottom, #FFA25E, #FB8631);
+    color: #ffffff;
+
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.4;
+    text-decoration: none;
+
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.btn-maps svg {
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+}
+
+.btn-maps:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.06);
+    box-shadow: 0 6px 16px rgba(251, 134, 49, 0.4);
+    color: #ffffff;
+}
+
+.btn-maps:hover svg {
+    transform: translate(2px, -2px);
+}
+
+.btn-maps:active {
+    transform: translateY(0);
+    filter: brightness(0.96);
+    box-shadow: none;
+}
+
+.btn-maps:focus-visible {
+    outline: 3px solid rgba(251, 134, 49, 0.45);
+    outline-offset: 3px;
+}
+
+/* Tablet */
+@media (max-width: 991.98px) {
+    .branch-section>.container {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .branch-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .branch-header h2 {
+        font-size: 40px;
+        line-height: 48px;
+    }
+}
+
+/* HP */
+@media (max-width: 575.98px) {
+    .branch-section {
+        padding: 48px 0;
+    }
+
+    .branch-section>.container {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .branch-header {
+        margin-bottom: 32px;
+    }
+
+    .branch-header h2 {
+        font-size: 30px;
+        line-height: 38px;
+    }
+
+    .branch-header p {
+        font-size: 15px;
+        line-height: 24px;
+    }
+
+    .branch-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .branch-name {
+        font-size: 28px;
+        line-height: 36px;
+    }
+
+    .branch-address {
+        font-size: 16px;
+        line-height: 26px;
+    }
+
+    .branch-note {
+        font-size: 14px;
+        line-height: 22px;
+    }
+}
+
+
+/* =====================================================
+   3. CTA BANNER
+===================================================== */
+
+.cta-banner-section {
+    padding: 48px 0;
+    background: #ffffff;
+}
+
+/* Lebar banner 1216px di layar 1440px (sama dengan Figma) */
+.cta-banner-section>.container {
+    max-width: 1440px;
+    padding-left: 112px;
+    padding-right: 112px;
+}
+
+.cta-banner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 320px;
+    padding: 48px 24px;
+    overflow: hidden;
+    border-radius: 24px;
+    text-align: center;
+    color: #ffffff;
+
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.55)),
+        url("../img/cta/cta.png") center / cover no-repeat;
+}
+
+.cta-banner-eyebrow {
+    margin: 0 0 12px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 20px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+}
+
+.cta-banner h2 {
+    max-width: 640px;
+    margin: 0 0 32px;
+    font-family: 'SF Pro Display', sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+}
+
+/* Tombol putih "Konsultasi Gratis" */
+.btn-cta-light {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    height: 52px;
+    padding: 0 24px;
+
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 12px;
+    background: linear-gradient(to bottom, #ffffff, #EDEDF0);
+    color: #2B2B2B;
+
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-cta-light svg {
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+}
+
+.btn-cta-light:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    color: #2B2B2B;
+}
+
+.btn-cta-light:hover svg {
+    transform: translateX(4px);
+}
+
+.btn-cta-light:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.btn-cta-light:focus-visible {
+    outline: 3px solid rgba(255, 255, 255, 0.6);
+    outline-offset: 3px;
+}
+
+/* Tablet */
+@media (max-width: 991.98px) {
+    .cta-banner-section>.container {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .cta-banner h2 {
+        font-size: 34px;
+    }
+}
+
+/* HP */
+@media (max-width: 575.98px) {
+    .cta-banner-section {
+        padding: 32px 0;
+    }
+
+    .cta-banner-section>.container {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .cta-banner {
+        min-height: 280px;
+        padding: 40px 20px;
+        border-radius: 18px;
+    }
+
+    .cta-banner-eyebrow {
+        font-size: 12px;
+    }
+
+    .cta-banner h2 {
+        margin-bottom: 24px;
+        font-size: 26px;
+    }
+}

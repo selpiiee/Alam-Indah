@@ -1,0 +1,423 @@
+/* =====================================================
+   HALAMAN LAYANAN  (Figma: LP_Layanan)
+   Dipakai BERSAMA css/style.css (navbar, hero, CTA banner, footer).
+   Urutan di file ini = urutan section di layanan.html:
+   1. Hero versi halaman layanan
+   2. Blok "Mengapa Memilih Kami" + baris fitur (gambar & teks bergantian)
+   3. Strip logo klien
+===================================================== */
+
+
+/* =====================================================
+   1. HERO (versi halaman layanan)
+   Struktur HTML sama dengan beranda, hanya fotonya beda.
+===================================================== */
+
+.hero-layanan {
+    background-image:
+        linear-gradient(to bottom,
+            rgba(0, 0, 0, 0.78) 0%,
+            rgba(0, 0, 0, 0.10) 45%,
+            rgba(0, 0, 0, 0.35) 100%),
+        url("../img/hero/layanan.png");
+}
+
+
+/* =====================================================
+   2. BARIS FITUR (gambar + teks)
+   Gambar ±600x440, teks di sebelahnya, posisi bergantian.
+===================================================== */
+
+.feature-section {
+    padding: 80px 0;
+    background: #ffffff;
+    color: #111111;
+}
+
+/* Bagian yang dipisah strip logo: padding atas/bawah dimatikan salah satunya */
+.feature-section--top {
+    padding-bottom: 0;
+}
+
+.feature-section--bottom {
+    padding-top: 0;
+}
+
+.feature-section>.container {
+    max-width: 1440px;
+    padding-left: 80px;
+    padding-right: 80px;
+}
+
+.feature-row {
+    display: grid;
+    grid-template-columns: minmax(0, 600px) minmax(0, 1fr);
+    gap: 80px;
+    align-items: center;
+}
+
+.feature-row+.feature-row {
+    margin-top: 80px;
+}
+
+/* Blok pembuka ("Mengapa Memilih Kami"): gambar sedikit lebih sempit & tinggi */
+.feature-row--intro {
+    grid-template-columns: minmax(0, 528px) minmax(0, 1fr);
+}
+
+.feature-row--intro .feature-media {
+    aspect-ratio: 528 / 520;
+}
+
+/* Gambar di kanan: kolom teks dulu, baru gambar */
+.feature-row--reverse {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 600px);
+}
+
+.feature-row--reverse .feature-media {
+    order: 2;
+}
+
+/* Gambar */
+
+.feature-media {
+    --feature-radius: 40px;
+    overflow: hidden;
+    aspect-ratio: 600 / 440;
+    border-radius: var(--feature-radius);
+    background: #E5E7EB;
+}
+
+.feature-media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Teks */
+
+.feature-badge {
+    display: inline-block;
+    margin-bottom: 16px;
+    padding: 6px 16px;
+    border-radius: 10px;
+    background: #EAF4FF;
+    color: #1680FF;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+}
+
+/* Versi huruf kapital (KATALOG & SUPPLY, dll) */
+.feature-badge--caps {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+}
+
+.feature-badge--orange {
+    background: #FFF0E6;
+    color: #E8651A;
+}
+
+.feature-title {
+    max-width: 450px;
+    margin: 0 0 16px;
+    color: #2B2B2B;
+    font-family: 'SF Pro Display', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 44px;
+    letter-spacing: -0.02em;
+}
+
+.feature-title--lg {
+    max-width: 520px;
+    font-size: 48px;
+    line-height: 56px;
+}
+
+.feature-text {
+    max-width: 440px;
+    margin: 0;
+    color: #6B7280;
+    font-size: 16px;
+    line-height: 26px;
+}
+
+.feature-label {
+    margin: 24px 0 12px;
+    color: #2B2B2B;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+}
+
+.feature-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.feature-list li {
+    display: flex;
+    gap: 16px;
+    color: #6B7280;
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.feature-list li span {
+    min-width: 20px;
+    color: #2B2B2B;
+    font-weight: 700;
+}
+
+/* Tablet */
+@media (max-width: 991.98px) {
+    .feature-section {
+        padding: 56px 0;
+    }
+
+    .feature-section--top {
+        padding-bottom: 0;
+    }
+
+    .feature-section--bottom {
+        padding-top: 0;
+    }
+
+    .feature-section>.container {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .feature-row,
+    .feature-row--intro,
+    .feature-row--reverse {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .feature-row+.feature-row {
+        margin-top: 56px;
+    }
+
+    /* Di layar kecil gambar selalu di atas teks */
+    .feature-row--reverse .feature-media {
+        order: 0;
+    }
+
+    .feature-media {
+        --feature-radius: 28px;
+    }
+
+    .feature-title--lg {
+        font-size: 38px;
+        line-height: 46px;
+    }
+
+    .feature-title,
+    .feature-title--lg,
+    .feature-text {
+        max-width: none;
+    }
+}
+
+/* HP */
+@media (max-width: 575.98px) {
+    .feature-section>.container {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .feature-media {
+        --feature-radius: 22px;
+    }
+
+    .feature-title {
+        font-size: 28px;
+        line-height: 36px;
+    }
+
+    .feature-title--lg {
+        font-size: 30px;
+        line-height: 38px;
+    }
+}
+
+
+/* =====================================================
+   3. STRIP LOGO KLIEN
+===================================================== */
+
+.client-strip {
+    padding: 80px 0;
+    background: #ffffff;
+}
+
+.client-strip>.container {
+    max-width: 1440px;
+    padding-left: 64px;
+    padding-right: 64px;
+}
+
+.client-strip-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 32px 120px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.client-strip-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 130px;
+}
+
+.client-strip-item img {
+    display: block;
+    width: auto;
+    max-width: 200px;
+    max-height: 130px;
+    object-fit: contain;
+}
+
+/* =========================
+   CTA SECTION
+========================= */
+
+.cta-section {
+    width: 100%;
+    padding: 30px 0;
+    background-color: #ffffff;
+}
+
+.cta-content {
+    position: relative;
+    width: calc(100% - 80px);
+    max-width: 1216px;
+    min-height: 320px;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    color: #ffffff;
+
+    background-image:
+        linear-gradient(
+            rgba(0, 0, 0, 0.44),
+            rgba(0, 0, 0, 0.44)
+        ),
+        url("../img/cta/cta.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    border-radius: 22px;
+    overflow: hidden;
+}
+
+.cta-label {
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.cta-content h2 {
+    max-width: 650px;
+    margin-bottom: 30px;
+
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.14;
+    color: #ffffff;
+}
+
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    padding: 12px 20px;
+
+    background-color: #ffffff;
+    color: #292929;
+
+    border-radius: 10px;
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: all 0.2s ease;
+}
+
+.cta-button:hover {
+    background-color: #eeeeee;
+    color: #292929;
+    transform: translateY(-2px);
+}
+
+.cta-button i {
+    font-size: 16px;
+}
+
+/* Tablet */
+@media (max-width: 991.98px) {
+    .client-strip {
+        padding: 56px 0;
+    }
+
+    .client-strip-list {
+        gap: 24px 56px;
+    }
+
+    .client-strip-item {
+        height: 90px;
+    }
+
+    .client-strip-item img {
+        max-width: 150px;
+        max-height: 90px;
+    }
+}
+
+/* HP */
+@media (max-width: 575.98px) {
+    .client-strip>.container {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .client-strip-list {
+        gap: 20px 32px;
+    }
+
+    .client-strip-item {
+        height: 64px;
+    }
+
+    .client-strip-item img {
+        max-width: 110px;
+        max-height: 64px;
+    }
+}
+

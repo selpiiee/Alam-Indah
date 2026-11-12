@@ -1,0 +1,207 @@
+.hero-artikel {
+    background-image:
+        linear-gradient(to bottom,
+            rgba(0, 0, 0, 0.78) 0%,
+            rgba(0, 0, 0, 0.10) 45%,
+            rgba(0, 0, 0, 0.35) 100%),
+        url("../img/artikel/hero_artikel.jpg");
+}
+
+.hero-navbar .nav-link.active {
+    color: #ffffff;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 8px;
+    text-decoration-thickness: 2px;
+}
+
+.artikel-page-section {
+    padding: 64px 0 40px;
+    background: #ffffff;
+    color: #111111;
+}
+
+.artikel-page-section .section-heading {
+    max-width: 520px;
+    margin-bottom: 40px;
+}
+
+.artikel-page-section .section-heading p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333333;
+    text-wrap: balance;
+}
+
+/* Card (komponen Bootstrap .card, ditimpa supaya sama dengan desain) */
+.article-card-item {
+    padding: 12px;
+    border: 1px solid #e5e7eb;
+    border-radius: 20px;
+    background: #ffffff;
+    box-shadow: 0 1px 2px rgba(12, 37, 57, 0.04);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.article-card-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(12, 37, 57, 0.10);
+}
+
+.article-card-item .card-img-top {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.article-card-item .card-body {
+    display: flex;
+    flex-direction: column;
+    padding: 16px 4px 4px;
+}
+
+/* "Tips & Trick • Aug 2026" */
+.article-meta {
+    margin: 0 0 6px;
+    font-size: 14px;
+    line-height: 1.4;
+    color: #6b7280;
+}
+
+.article-meta .dot {
+    margin: 0 4px;
+}
+
+/* Judul: tebal, maksimal 2 baris */
+.article-title {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+
+    min-height: calc(1.4em * 2);
+    margin: 0 0 16px;
+
+    font-family: 'SF Pro Display', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.4;
+    color: #000000;
+}
+
+/* Tombol "Baca artikel →" = .btn.btn-primary.btn-sm + warna biru project */
+.article-btn {
+    --bs-btn-bg: #0054b4;
+    --bs-btn-border-color: #0054b4;
+    --bs-btn-hover-bg: #00428f;
+    --bs-btn-hover-border-color: #00428f;
+    --bs-btn-active-bg: #00428f;
+    --bs-btn-active-border-color: #00428f;
+    --bs-btn-border-radius: 8px;
+
+    align-self: flex-start;
+    margin-top: auto;
+    padding: 8px 16px;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+
+/* =====================================================
+   4. PAGINATION (Bootstrap .pagination)
+===================================================== */
+
+.artikel-pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.artikel-pagination .pagination {
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 0;
+    --bs-pagination-color: #262626;
+    --bs-pagination-hover-color: #262626;
+    --bs-pagination-focus-color: #262626;
+    --bs-pagination-disabled-color: #9ca3af;
+}
+
+.artikel-pagination .page-link {
+    min-width: 40px;
+    margin-left: 0;
+    padding: 8px 12px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    background: transparent;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.artikel-pagination .page-link:hover {
+    background: #f3f4f6;
+}
+
+.artikel-pagination .page-link:focus-visible {
+    box-shadow: 0 0 0 3px rgba(30, 128, 223, 0.35);
+}
+
+/* Prev & Next punya garis tepi */
+.artikel-pagination .page-nav .page-link {
+    border-color: #e5e7eb;
+}
+
+/* Halaman aktif */
+.artikel-pagination .page-item.active .page-link {
+    border-color: #262626;
+    background: #262626;
+    color: #ffffff;
+}
+
+.artikel-pagination .page-item.disabled .page-link {
+    background: transparent;
+}
+
+
+/* =====================================================
+   Responsive
+===================================================== */
+
+/* Tablet kecil */
+@media (max-width: 767.98px) {
+    .artikel-page-section {
+        padding: 56px 0 32px;
+    }
+
+    .article-title {
+        font-size: 17px;
+    }
+}
+
+/* HP */
+@media (max-width: 575.98px) {
+    .artikel-page-section .section-heading p {
+        font-size: 14px;
+    }
+
+    .artikel-pagination .page-link {
+        min-width: 36px;
+        padding: 6px 10px;
+        font-size: 14px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .article-card-item {
+        transition: none;
+    }
+
+    .article-card-item:hover {
+        transform: none;
+    }
+}

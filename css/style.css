@@ -93,25 +93,6 @@ body {
     background-repeat: no-repeat;
 }
 
-/* Blur di bagian bawah hero */
-.hero {
-    min-height: 580px;
-    position: relative;
-    isolation: isolate;
-    overflow: hidden;
-
-    background-image:
-        linear-gradient(to bottom,
-            rgba(0, 0, 0, 0.78) 0%,
-            rgba(0, 0, 0, 0.10) 45%,
-            rgba(0, 0, 0, 0.35) 100%),
-        url("../img/hero/hero-lp.png");
-
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
 /* Blur bagian bawah hero */
 .hero::after {
     content: "";
@@ -270,7 +251,7 @@ body {
         margin-top: 12px;
         padding: 16px;
         border-radius: 12px;
-        background-color: rgba(20, 20, 20, 0.94);
+        background-color: rgba(20, 20, 20, 10);
     }
 
     .hero-navbar .navbar-nav {

@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Alam Indah | Batu Alam</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS kita -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/produk.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg hero-navbar">
+        <div class="container">
+
+            <a class="navbar-brand" href="index.html">
+                <img src="img/logo/Alam-Indah.png" alt="Logo Alam Indah" class="logo">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarAlamIndah"
+                aria-controls="navbarAlamIndah" aria-expanded="false" aria-label="Buka navigasi">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarAlamIndah">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="produk.html">Produk</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="layanan.html">Layanan</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="cabang.html">Cabang</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#testimoni">Testimoni</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="kontak.html">Kontak</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="btn btn-primary btn-sm nav-button" href="#produk">
+                            Alam Indah ↗
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+
+
+    <!-- HERO SECTION -->
+    <section class="hero hero-produk">
+
+        <!-- HERO CONTENT -->
+        <div class="container hero-content">
+            <div class="hero-text">
+
+                <div class="hero-breadcrumb">
+                    <span class="breadcrumb-active">Lorem Ipsum</span>
+                    <span>Lorem Ipsum Dolor</span>
+                    <span>Lorem ↗</span>
+                </div>
+
+                <h1>
+                    Kekuatan Alam Sejati, Keindahan
+                    yang Tak Terbantahkan
+                </h1>
+
+                <p>
+                    Kami menghadirkan batu pilihan langsung dari sumber terbaik,
+                    untuk hunian, komersial, dan proyek besar yang butuh karakter
+                    kuat dan daya tahan luar biasa.
+                </p>
+
+            </div>
+        </div>
+
+    </section>
+    <!-- END HERO SECTION -->
+
+
+    <main>
+        <section class="catalog-section" id="produk-list">
+            <div class="container">
+                <header class="catalog-heading">
+                    <h2>Produk</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </header>
+
+                <div class="catalog-filters">
+                    <label class="catalog-search">
+                        <span class="visually-hidden">Cari produk</span>
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <circle cx="11" cy="11" r="7"></circle>
+                            <path d="m16 16 4 4"></path>
+                        </svg>
+                        <input id="catalogSearch" type="search" placeholder="Cari Produk" autocomplete="off">
+                    </label>
+                    <label class="catalog-select">
+                        <span class="visually-hidden">Pilih cabang</span>
+                        <select id="catalogBranch" aria-label="Cabang">
+                            <option value="all">Cabang Malang</option>
+                            <option value="berau">Cabang Berau</option>
+                            <option value="balikpapan">Cabang Balikpapan</option>
+                        </select>
+                    </label>
+                    <label class="catalog-select">
+                        <span class="visually-hidden">Pilih jenis produk</span>
+                        <select id="catalogCategory" aria-label="Jenis Produk">
+                            <option value="all">Jenis Produk</option>
+                            <option value="candi">Batu Candi</option>
+                            <option value="paras">Batu Paras</option>
+                            <option value="mozaik">Mozaik</option>
+                            <option value="koral">Koral</option>
+                            <option value="lempeng">Batu Lempeng</option>
+                        </select>
+                    </label>
+                </div>
+
+                <div class="catalog-grid" id="catalogGrid">
+                    <button class="catalog-card" type="button" data-category="candi"
+                        data-branches="malang,berau,balikpapan" data-price="Mulai Rp230.000/m²"
+                        data-use="Cocok untuk dinding fasad, pagar, dan aksen ruang bernuansa alami.">
+                        <img src="img/produk/Alur-Candi.png" alt="Batu Alur Candi Cukil" loading="lazy">
+                        <span class="catalog-card-copy"><strong>Alur Candi Cukil</strong><span>Batu alam beralur hasil
+                                cukilan tangan, memberi tampilan berlapis yang tegas dan klasik.</span><b>Mulai
+                                Rp230.000/m²</b></span>
+                    </button>
+                    <button class="catalog-card" type="button" data-category="paras"
+                        data-branches="malang,berau,balikpapan" data-price="Mulai Rp150.000/m²"
+                        data-use="Cocok untuk fasad, dinding interior, dan aksen dekoratif.">
+                        <img src="img/produk/Paras-RTA.png" alt="Batu Paras RTA" loading="lazy">
+                        <span class="catalog-card-copy"><strong>Paras RTA</strong><span>Batu paras krem hangat
+                                berpermukaan kasar alami, cocok untuk fasad dan aksen.</span><b>Mulai
+                                Rp150.000/m²</b></span>
+                    </button>
+                    <button class="catalog-card" type="button" data-category="koral"
+                        data-branches="malang,berau,balikpapan" data-price="Hubungi kami untuk harga"
+                        data-use="Gunakan sebagai elemen dekoratif untuk menambah warna dan karakter pada taman atau ruang.">
+                        <img src="img/produk/Koral-Pancawarna.png" alt="Koral Pancawarna" loading="lazy">
+                        <span class="catalog-card-copy"><strong>Koral Pancawarna</strong><span>Perpaduan warna-warni
+                                alami yang membuat tampilannya lebih hidup.</span><b>Hubungi kami untuk harga</b></span>
+                    </button>
+                    <button class="catalog-card" type="button" data-category="lempeng"
+                        data-branches="malang,berau,balikpapan" data-price="Mulai Rp125.000/m²"
+                        data-use="Ideal untuk jalur taman, pijakan, dan area luar ruang.">
+                        <img src="img/produk/Batu-Lempeng.png" alt="Batu Lempeng" loading="lazy">
+                        <span class="catalog-card-copy"><strong>Batu Lempeng</strong><span>Lempengan tipis dengan
+                                tekstur dan warna alami yang khas.</span><b>Mulai Rp125.000/m²</b></span>
+                    </button>
+                    <button class="catalog-card" type="button" data-category="mozaik"
+                        data-branches="malang,berau,balikpapan" data-price="Mulai Rp250.000/m²"
+                        data-use="Memberi pola dan tekstur pada dinding aksen maupun area dekoratif.">
+                        <img src="img/produk/Mozaik-Rata-Alam.png" alt="Mozaik Rata Alam" loading="lazy">
+                        <span class="catalog-card-copy"><strong>Mozaik Rata Alam</strong><span>Kepingan batu disusun
+                                menjadi mozaik dengan nuansa alami yang kontras.</span><b>Mulai Rp250.000/m²</b></span>
+                    </button>
+                    <button class="catalog-card" type="button" data-category="koral"
+                        data-branches="malang,berau,balikpapan" data-price="Hubungi kami untuk harga"
+                        data-use="Pilihan aksen untuk taman, dinding, dan bidang dekoratif.">
+                        <img src="img/produk/Koral-Merah-Molen.png" alt="Koral Merah Molen" loading="lazy">
+                        <span class="catalog-card-copy"><strong>Koral Merah Molen</strong><span>Warna merah alami dan
+                                tekstur permukaan yang khas pada setiap kepingnya.</span><b>Hubungi kami untuk
+                                harga</b></span>
+                    </button>
+                    <button class="catalog-card" type="button" data-category="mozaik"
+                        data-branches="malang,berau,balikpapan" data-price="Hubungi kami untuk harga"
+                        data-use="Cocok untuk dinding dekoratif dengan kontras warna yang kuat.">
+                        <img src="img/produk/Mozaik-BW.png" alt="Mozaik Hitam Putih" loading="lazy">
+                        <span class="catalog-card-copy"><strong>Mozaik Hitam Putih</strong><span>Susunan batu bernuansa
+                                hitam dan putih untuk dinding yang menonjol.</span><b>Hubungi kami untuk
+                                harga</b></span>
+                    </button>
+                    <button class="catalog-card" type="button" data-category="koral"
+                        data-branches="malang,berau,balikpapan" data-price="Hubungi kami untuk harga"
+                        data-use="Gunakan sebagai aksen dekoratif pada dinding dan taman.">
+                        <img src="img/produk/Koral-Hijau-Grafir.png" alt="Koral Hijau Grafir" loading="lazy">
+                        <span class="catalog-card-copy"><strong>Koral Hijau Grafir</strong><span>Nuansa warna hijau
+                                natural yang elegan dengan sentuhan ukiran grafir.</span><b>Hubungi kami untuk
+                                harga</b></span>
+                    </button>
+                </div>
+                <p class="catalog-empty d-none" id="catalogEmpty" role="status">Produk tidak ditemukan.</p>
+            </div>
+        </section>
+
+        <!-- CTA BANNER -->
+        <section class="cta-banner-section" id="kontak">
+            <div class="container">
+                <div class="cta-banner">
+                    <p class="cta-banner-eyebrow">Building with natural stone</p>
+                    <h2>Let's build something beautiful with natural stone.</h2>
+
+                    <a href="mailto:alam@gmail.com" class="btn-cta-light">
+                        Konsultasi Gratis
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M5 12h14M13 6l6 6-6 6" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <!-- END CTA BANNER -->
+
+
+        <!-- FOOTER (sama dengan beranda; link anchor diarahkan ke index.html) -->
+        <footer class="site-footer">
+            <div class="container footer-container">
+
+                <!-- Brand -->
+                <div class="footer-brand">
+                    <a href="index.html" class="footer-logo">
+                        <img src="img/logo/Alam-Indah.png" alt="Alam Indah">
+                    </a>
+
+                    <p class="footer-description">
+                        Alam Indah menyediakan pilihan batu alam berkualitas
+                        untuk kebutuhan hunian, bangunan komersial, dan berbagai proyek.
+                    </p>
+
+                    <div class="footer-socials">
+                        <a href="#" aria-label="Instagram Alam Indah"><img src="icons/IG.png"></a>
+                        <a href="#" aria-label="Facebook Alam Indah"><img src="icons/FB.png"></a>
+                        <a href="#" aria-label="WhatsApp Alam Indah"><img src="icons/WA.png"></a>
+                    </div>
+                </div>
+
+                <!-- Footer Links -->
+                <div class="footer-content">
+
+                    <div class="footer-column">
+                        <h3>NAVIGASI</h3>
+                        <ul>
+                            <li><a href="index.html">Beranda</a></li>
+                            <li><a href="index.html#produk">Produk</a></li>
+                            <li><a href="index.html#layanan">Layanan</a></li>
+                            <li><a href="index.html#testimoni">Testimoni</a></li>
+                            <li><a href="index.html#artikel">Artikel &amp; Tips</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column footer-contact">
+                        <h3>KONTAK</h3>
+                        <ul>
+                            <li>
+                                <span>Malang (Pusat)</span>
+                                <a href="tel:+621358734165">+62 135-8734-165</a>
+                            </li>
+                            <li>
+                                <span>Berau</span>
+                                <a href="tel:+62123456789">+62 852-3435-2043</a>
+                            </li>
+                            <li>
+                                <span>Balikpapan</span>
+                                <a href="tel:+6282157310589">+62 821-5731-0589</a>
+                            </li>
+                            <li>
+                                <span>Email</span>
+                                <a href="mailto:alam@gmail.com">alam@gmail.com</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h3>LOKASI</h3>
+                        <ul>
+                            <li><a href="index.html#cabang">Malang (Pusat)</a></li>
+                            <li><a href="index.html#cabang">Berau</a></li>
+                            <li><a href="index.html#cabang">Balikpapan</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Newsletter -->
+                    <div class="footer-newsletter">
+                        <h3>Dapatkan informasi dan inspirasi batu alam</h3>
+
+                        <form class="newsletter-form" id="newsletterForm">
+                            <label for="newsletterEmail" class="visually-hidden">Alamat email</label>
+                            <input type="email" id="newsletterEmail" name="email" placeholder="Alamat email kamu"
+                                required>
+                            <button type="submit" aria-label="Daftar newsletter">Daftar <span>↗</span></button>
+                        </form>
+
+                        <p class="newsletter-message" id="newsletterMessage" aria-live="polite"></p>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="container footer-bottom">
+                <p>© 2026 Alam Indah. Hak cipta dilindungi.</p>
+                <a href="#top">Kembali ke atas ↑</a>
+            </div>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="js/produk.js"></script>
+</body>
+
+</html>

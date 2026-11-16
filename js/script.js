@@ -11,6 +11,25 @@
 ===================================================== */
 
 (function () {
+    // GLASS NAVBAR: stays visible and strengthens its tint after scrolling.
+    const glassNavbars = document.querySelectorAll(".hero-navbar, .catalog-navbar");
+    const syncGlassNavbars = () => {
+        glassNavbars.forEach((navbar) => {
+            const hero = navbar.closest(".hero, .catalog-hero")
+                || document.querySelector(".hero, .catalog-hero");
+            const hasPassedHero = hero
+                ? hero.getBoundingClientRect().bottom <= navbar.getBoundingClientRect().bottom
+                : window.scrollY > 24;
+
+            navbar.classList.toggle("is-scrolled", window.scrollY > 24 && hasPassedHero);
+        });
+    };
+
+    if (glassNavbars.length) {
+        syncGlassNavbars();
+        window.addEventListener("scroll", syncGlassNavbars, { passive: true });
+    }
+
     // TESTIMONIAL CAROUSEL
 
     const testimonialTrack = document.querySelector(".testimonial-track");

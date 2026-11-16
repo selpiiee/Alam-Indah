@@ -4,24 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Alam Indah | Batu Alam</title>
-
-    <!-- Bootstrap 5 -->
+    <meta name="description" content="Jelajahi pilihan batu alam Alam Indah.">
+    <title>Produk | Alam Indah</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
-
-    <!-- CSS kita -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/produk.css">
 </head>
 
-<body>
+<body id="top">
 
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg hero-navbar">
@@ -49,10 +39,6 @@
 
                     <li class="nav-item">
                         <a class="nav-link" href="cabang.html">Cabang</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="#testimoni">Testimoni</a>
                     </li>
 
                     <li class="nav-item">
@@ -102,7 +88,6 @@
     </section>
     <!-- END HERO SECTION -->
 
-
     <main>
         <section class="catalog-section" id="produk-list">
             <div class="container">
@@ -135,75 +120,131 @@
                             <option value="candi">Batu Candi</option>
                             <option value="paras">Batu Paras</option>
                             <option value="mozaik">Mozaik</option>
-                            <option value="koral">Koral</option>
+                            <option value="andesit">Koral</option>
                             <option value="lempeng">Batu Lempeng</option>
+                            <option value="stik">Stik</option>
+                            <option value="marmo">Marmo</option>
                         </select>
                     </label>
                 </div>
 
                 <div class="catalog-grid" id="catalogGrid">
                     <button class="catalog-card" type="button" data-category="candi"
-                        data-branches="malang,berau,balikpapan" data-price="Mulai Rp230.000/m²"
-                        data-use="Cocok untuk dinding fasad, pagar, dan aksen ruang bernuansa alami.">
-                        <img src="img/produk/Alur-Candi.png" alt="Batu Alur Candi Cukil" loading="lazy">
+                        data-branches="malang,berau,balikpapan" data-price="Mulai Rp150.000/m²"
+                        data-use="Cocok untuk fasad, dinding interior, dan aksen dekoratif.">
+                        <img src="img/produk/catalog/alur-candi-cukil.png" alt="Batu Alur Candi Cukil" loading="lazy">
                         <span class="catalog-card-copy"><strong>Alur Candi Cukil</strong><span>Batu alam beralur hasil
                                 cukilan tangan, memberi tampilan berlapis yang tegas dan klasik.</span><b>Mulai
                                 Rp230.000/m²</b></span>
                     </button>
+
                     <button class="catalog-card" type="button" data-category="paras"
                         data-branches="malang,berau,balikpapan" data-price="Mulai Rp150.000/m²"
-                        data-use="Cocok untuk fasad, dinding interior, dan aksen dekoratif.">
-                        <img src="img/produk/Paras-RTA.png" alt="Batu Paras RTA" loading="lazy">
-                        <span class="catalog-card-copy"><strong>Paras RTA</strong><span>Batu paras krem hangat
+                        data-use="Untuk fasad dan dinding interior dengan nuansa batu paras yang alami.">
+                        <img src="img/produk/catalog/paras-RTA.png" alt="Batu Paras RTA" loading="lazy">
+                        <span class="catalog-card-copy"><strong>Batu Paras RTA</strong><span>Batu paras krem hangat
                                 berpermukaan kasar alami, cocok untuk fasad dan aksen.</span><b>Mulai
-                                Rp150.000/m²</b></span>
+                                Rp200.000/m²</b></span>
                     </button>
-                    <button class="catalog-card" type="button" data-category="koral"
-                        data-branches="malang,berau,balikpapan" data-price="Hubungi kami untuk harga"
-                        data-use="Gunakan sebagai elemen dekoratif untuk menambah warna dan karakter pada taman atau ruang.">
-                        <img src="img/produk/Koral-Pancawarna.png" alt="Koral Pancawarna" loading="lazy">
-                        <span class="catalog-card-copy"><strong>Koral Pancawarna</strong><span>Perpaduan warna-warni
-                                alami yang membuat tampilannya lebih hidup.</span><b>Hubungi kami untuk harga</b></span>
+
+                    <button class="catalog-card" type="button" data-category="candi"
+                        data-branches="malang,berau,balikpapan" data-price="Mulai Rp150.000/m²"
+                        data-use="Untuk dinding luar atau pagar yang ingin menonjolkan garis alur tradisional.">
+                        <img src="img/produk/catalog/alur-candi.png" alt="Batu Alur Candi" loading="lazy">
+                        <span class="catalog-card-copy"><strong>Alur Candi</strong><span>Garis alur lurus rapi pada batu
+                                candi gelap, kokoh dan bernuansa tradisional.</span><b>Mulai
+                                Rp230.000/m²</b></span>
                     </button>
+
+                    <button class="catalog-card" type="button" data-category="andesit"
+                        data-branches="malang,berau,balikpapan" data-price="Mulai Rp150.000/m²"
+                        data-use="Untuk dinding atau lantai teras dengan tampilan minimalis dan rapi.">
+                        <img src="img/produk/catalog/andesit-polos.png" alt="Andesit Polos" loading="lazy">
+                        <span class="catalog-card-copy"><strong>Andesit Polos</strong><span>Permukaan rata dan bersih
+                                berwarna abu alami, ideal untuk tampilan minimalis modern.</span><b>Mulai
+                                Rp200.000/m²</b></span>
+                    </button>
+
+                    <button class="catalog-card" type="button" data-category="mozaik"
+                        data-branches="malang,berau,balikpapan" data-price="Mulai Rp150.000/m²"
+                        data-use="Untuk aksen dinding interior maupun fasad dengan tekstur susunan batu.">
+                        <img src="img/produk/catalog/mozaik-andesit.png" alt="Mozaik Andesit" loading="lazy">
+                        <span class="catalog-card-copy"><strong>Mozaik Andesit</strong><span>Kepingan andesit berbagai
+                                ukuran disusun acak dengan nuansa abu hingga cokelat alami.</span><b>Mulai
+                                Rp250.000/m²</b></span>
+                    </button>
+
+                    <button class="catalog-card" type="button" data-category="andesit"
+                        data-branches="malang,berau,balikpapan" data-price="Mulai Rp150.000/m²"
+                        data-use="Untuk fasad dan dinding luar yang membutuhkan tekstur batu yang kuat.">
+                        <img src="img/produk/catalog/andesit-RTA.png" alt="Andesit RTA" loading="lazy">
+                        <span class="catalog-card-copy"><strong>Andesit RTA</strong><span>Andesit abu gelap bertekstur
+                                kasar, kuat dan tahan cuaca untuk area luar.</span><b>Mulai
+                                Rp220.000/m²</b></span>
+                    </button>
+
+                    <button class="catalog-card" type="button" data-category="mozaik"
+                        data-branches="malang,berau,balikpapan" data-price="Mulai Rp150.000/m²"
+                        data-use="Untuk bidang aksen yang ingin menonjolkan pola hitam putih.">
+                        <img src="img/produk/catalog/mozaik-susun-sirih-bw.png" alt="Mozaik Susun Sirih Hitam Putih"
+                            loading="lazy">
+                        <span class="catalog-card-copy"><strong>Mozaik Susun Sirih Hitam Putih</strong><span>Susunan
+                                memanjang bergaya sirih berpadu hitam putih, kontras kuat untuk dinding
+                                statement.</span><b>Mulai
+                                Rp???/m²</b></span>
+                    </button>
+
+                    <button class="catalog-card" type="button" data-category="candi"
+                        data-branches="malang,berau,balikpapan" data-price="Mulai Rp150.000/m²"
+                        data-use="Untuk fasad atau dinding eksterior bernuansa batu candi.">
+                        <img src="img/produk/catalog/candi-RTA.png" alt="Candi RTA" loading="lazy">
+                        <span class="catalog-card-copy"><strong>Candi RTA</strong><span>Batu candi abu kehitaman
+                                bertekstur kasar, memberi karakter alami pada dinding fasad.</span><b>Mulai
+                                Rp215.000/m²</b></span>
+                    </button>
+
+                    <button class="catalog-card" type="button" data-category="mozaik"
+                        data-branches="malang,berau,balikpapan" data-price="Mulai Rp150.000/m²"
+                        data-use="Untuk aksen dinding dengan kombinasi warna dan tekstur batu alam.">
+                        <img src="img/produk/catalog/alam-mozaik.png" alt="Alam Mozaik" loading="lazy">
+                        <span class="catalog-card-copy"><strong>Alam Mozaik</strong><span>Perpaduan krem, abu, dan hitam
+                                dalam susunan mozaik yang natural dan hidup</span><b>Mulai
+                                Rp???/m²</b></span>
+                    </button>
+
+                    <button class="catalog-card" type="button" data-category="stik"
+                        data-branches="malang,berau,balikpapan" data-price="Mulai Rp150.000/m²"
+                        data-use="Untuk aksen dinding dengan susunan vertikal berwarna merah bata.">
+                        <img src="img/produk/catalog/stik-merah.png" alt="Stik Merah" loading="lazy">
+                        <span class="catalog-card-copy"><strong>Stik Merah</strong><span>Batu memanjang merah bata
+                                disusun tegak, memberi aksen hangat pada dinding rumah.</span><b>Mulai
+                                Rp275.000/m²</b></span>
+                    </button>
+
                     <button class="catalog-card" type="button" data-category="lempeng"
-                        data-branches="malang,berau,balikpapan" data-price="Mulai Rp125.000/m²"
-                        data-use="Ideal untuk jalur taman, pijakan, dan area luar ruang.">
-                        <img src="img/produk/Batu-Lempeng.png" alt="Batu Lempeng" loading="lazy">
-                        <span class="catalog-card-copy"><strong>Batu Lempeng</strong><span>Lempengan tipis dengan
-                                tekstur dan warna alami yang khas.</span><b>Mulai Rp125.000/m²</b></span>
+                        data-branches="malang,berau,balikpapan" data-price="Mulai Rp150.000/m²"
+                        data-use="Untuk jalur taman, pijakan, atau area luar ruang.">
+                        <img src="img/produk/catalog/lempeng.png" alt="Lempeng" loading="lazy">
+                        <span class="catalog-card-copy"><strong>Lempeng</strong><span>Lempeng batu alam berbentuk
+                                organik, tiap keping unik untuk taman dan pijakan.</span><b>Mulai
+                                Rp125.000/m²</b></span>
                     </button>
-                    <button class="catalog-card" type="button" data-category="mozaik"
-                        data-branches="malang,berau,balikpapan" data-price="Mulai Rp250.000/m²"
-                        data-use="Memberi pola dan tekstur pada dinding aksen maupun area dekoratif.">
-                        <img src="img/produk/Mozaik-Rata-Alam.png" alt="Mozaik Rata Alam" loading="lazy">
-                        <span class="catalog-card-copy"><strong>Mozaik Rata Alam</strong><span>Kepingan batu disusun
-                                menjadi mozaik dengan nuansa alami yang kontras.</span><b>Mulai Rp250.000/m²</b></span>
+
+                    <button class="catalog-card" type="button" data-category="marmo"
+                        data-branches="malang,berau,balikpapan" data-price="Mulai Rp150.000/m²"
+                        data-use="Untuk aksen dinding dengan tampilan gelap yang elegan dan tegas.">
+                        <img src="img/produk/catalog/marmo-hitam.png" alt="Marmo Hitam" loading="lazy">
+                        <span class="catalog-card-copy"><strong>Marmo Hitam</strong><span>Batu hitam pekat yang elegan
+                                dan tegas, pas untuk dinding aksen mewah.</span><b>Mulai
+                                Rp200.000/m²</b></span>
                     </button>
-                    <button class="catalog-card" type="button" data-category="koral"
-                        data-branches="malang,berau,balikpapan" data-price="Hubungi kami untuk harga"
-                        data-use="Pilihan aksen untuk taman, dinding, dan bidang dekoratif.">
-                        <img src="img/produk/Koral-Merah-Molen.png" alt="Koral Merah Molen" loading="lazy">
-                        <span class="catalog-card-copy"><strong>Koral Merah Molen</strong><span>Warna merah alami dan
-                                tekstur permukaan yang khas pada setiap kepingnya.</span><b>Hubungi kami untuk
-                                harga</b></span>
-                    </button>
-                    <button class="catalog-card" type="button" data-category="mozaik"
-                        data-branches="malang,berau,balikpapan" data-price="Hubungi kami untuk harga"
-                        data-use="Cocok untuk dinding dekoratif dengan kontras warna yang kuat.">
-                        <img src="img/produk/Mozaik-BW.png" alt="Mozaik Hitam Putih" loading="lazy">
-                        <span class="catalog-card-copy"><strong>Mozaik Hitam Putih</strong><span>Susunan batu bernuansa
-                                hitam dan putih untuk dinding yang menonjol.</span><b>Hubungi kami untuk
-                                harga</b></span>
-                    </button>
-                    <button class="catalog-card" type="button" data-category="koral"
-                        data-branches="malang,berau,balikpapan" data-price="Hubungi kami untuk harga"
-                        data-use="Gunakan sebagai aksen dekoratif pada dinding dan taman.">
-                        <img src="img/produk/Koral-Hijau-Grafir.png" alt="Koral Hijau Grafir" loading="lazy">
-                        <span class="catalog-card-copy"><strong>Koral Hijau Grafir</strong><span>Nuansa warna hijau
-                                natural yang elegan dengan sentuhan ukiran grafir.</span><b>Hubungi kami untuk
-                                harga</b></span>
-                    </button>
+
                 </div>
+
+                <nav id="catalogPagination" class="mt-4 d-none" aria-label="Halaman produk">
+                    <ul class="pagination justify-content-center mb-0"></ul>
+                </nav>
+
                 <p class="catalog-empty d-none" id="catalogEmpty" role="status">Produk tidak ditemukan.</p>
             </div>
         </section>
@@ -319,6 +360,37 @@
             </div>
         </footer>
 
+        <div class="modal fade catalog-modal" id="catalogModal" tabindex="-1" aria-labelledby="catalogModalTitle"
+            aria-describedby="catalogModalDescription" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title" id="catalogModalTitle">Produk</h2>
+                        <button type="button" class="catalog-modal-close" data-bs-dismiss="modal"
+                            aria-label="Tutup">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <img class="catalog-modal-image" id="catalogModalImage" src="" alt="">
+                        <section class="catalog-modal-detail">
+                            <h3>Deskripsi Batu</h3>
+                            <p id="catalogModalDescription"></p>
+                        </section>
+                        <section class="catalog-modal-detail">
+                            <h3>Saran Pemakaian</h3>
+                            <p id="catalogModalUse"></p>
+                        </section>
+                        <section class="catalog-modal-detail catalog-modal-price">
+                            <h3>Harga</h3>
+                            <p id="catalogModalPrice"></p>
+                        </section>
+                        <a class="catalog-order-btn" id="catalogOrderLink" href="mailto:alam@gmail.com">Pesan Sekarang
+                            <span aria-hidden="true">↗</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="js/script.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
         <script src="js/produk.js"></script>
 </body>

@@ -1,62 +1,182 @@
 (() => {
-    const cards = Array.from(document.querySelectorAll(".catalog-card"));
-    const search = document.getElementById("catalogSearch");
-    const branch = document.getElementById("catalogBranch");
-    const category = document.getElementById("catalogCategory");
+    const cards = [...document.querySelectorAll(".catalog-card")];
+    const searchInput = document.getElementById("catalogSearch");
+    const branchSelect = document.getElementById("catalogBranch");
+    const categorySelect = document.getElementById("catalogCategory");
     const emptyMessage = document.getElementById("catalogEmpty");
     const modalElement = document.getElementById("catalogModal");
 
-    function filterCatalog() {
-        const query = (search?.value || "").trim().toLocaleLowerCase("id");
-        const selectedBranch = branch?.value || "all";
-        const selectedCategory = category?.value || "all";
-        let visibleCount = 0;
+    const modalFields = {
+        title: document.getElementById("catalogModalTitle"),
+        image: document.getElementById("catalogModalImage"),
+        description: document.getElementById("catalogModalDescription"),
+        use: document.getElementById("catalogModalUse"),
+        price: document.getElementById("catalogModalPrice"),
+        orderLink: document.getElementById("catalogOrderLink"),
+    };
 
-        cards.forEach((card) => {
-            const title = card.querySelector("strong")?.textContent || "";
-            const description = card.querySelector(".catalog-card-copy > span")?.textContent || "";
-            const matchesText = `${title} ${description}`.toLocaleLowerCase("id").includes(query);
-            const matchesBranch = (card.dataset.branches || "").split(",").includes(selectedBranch) || selectedBranch === "all";
-            const matchesCategory = selectedCategory === "all" || card.dataset.category === selectedCategory;
-            const visible = matchesText && matchesBranch && matchesCategory;
+    const modal = modalElement && window.bootstrap?.Modal
+        ? window.bootstrap.Modal.getOrCreateInstance(modalElement)
+        : null;
 
-            card.classList.toggle("d-none", !visible);
-            if (visible) visibleCount += 1;
+    function getFilteredCards() {
+        const query = (searchInput?.value || "").trim().toLocaleLowerCase("id");
+        const branch = branchSelect?.value || "all";
+        const category = categorySelect?.value || "all";
+
+        return cards.filter((card) => {
+            const searchableText = card.textContent.toLocaleLowerCase("id");
+            const availableBranches = (card.dataset.branches || "").split(",");
+
+            const matchesSearch = searchableText.includes(query);
+            const matchesBranch =
+                branch === "all" || availableBranches.includes(branch);
+            const matchesCategory =
+                category === "all" || card.dataset.category === category;
+
+            return matchesSearch && matchesBranch && matchesCategory;
         });
-
-        emptyMessage?.classList.toggle("d-none", visibleCount > 0);
     }
 
-    search?.addEventListener("input", filterCatalog);
-    branch?.addEventListener("change", filterCatalog);
-    category?.addEventListener("change", filterCatalog);
+    function renderPagination(pageCount) {
+    if (!pagination || !paginationList) return;
 
-    if (!modalElement) return;
+    paginationList.replaceChildren();
+    pagination.classList.toggle("d-none", pageCount <= 1);
 
-    const modal = new bootstrap.Modal(modalElement);
-    const modalTitle = document.getElementById("catalogModalTitle");
-    const modalImage = document.getElementById("catalogModalImage");
-    const modalDescription = document.getElementById("catalogModalDescription");
-    const modalUse = document.getElementById("catalogModalUse");
-    const modalPrice = document.getElementById("catalogModalPrice");
-    const orderLink = document.getElementById("catalogOrderLink");
+    if (pageCount <= 1) return;
 
-    function openProduct(card) {
-        const title = card.querySelector("strong")?.textContent.trim() || "Produk";
-        const description = card.querySelector(".catalog-card-copy > span")?.textContent.trim() || "";
-        const image = card.querySelector("img");
+    function addButton(label, page, options = {}) {
+        const item = document.createElement("li");
+        item.className = "page-item";
 
-        modalTitle.textContent = title;
-        modalDescription.textContent = description;
-        modalUse.textContent = card.dataset.use || "Hubungi kami untuk saran pemakaian produk ini.";
-        modalPrice.textContent = card.dataset.price || "Hubungi kami untuk informasi harga.";
-        if (image) {
-            modalImage.src = image.currentSrc || image.src;
-            modalImage.alt = image.alt || title;
+        if (options.active) item.classList.add("active");
+        if (options.disabled) item.classList.add("disabled");
+
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "page-link";
+        button.textContent = label;
+        button.disabled = Boolean(options.disabled);
+
+        if (options.active) {
+            button.setAttribute("aria-current", "page");
         }
-        orderLink.href = `mailto:alam@gmail.com?subject=${encodeURIComponent(`Pesan ${title} - Alam Indah`)}`;
+
+        button.addEventListener("click", () => {
+            currentPage = page;
+            renderCatalog();
+
+            document.getElementById("produk-list")?.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+            });
+        });
+
+        item.append(button);
+        paginationList.append(item);
+    }
+
+    function addEllipsis() {
+        const item = document.createElement("li");
+        item.className = "page-item pagination-ellipsis";
+        item.innerHTML = '<span class="page-link">...</span>';
+        paginationList.append(item);
+    }
+
+    addButton("‹ Prev", Math.max(1, currentPage - 1), {
+        disabled: currentPage === 1,
+    });
+
+    let pages;
+
+    if (pageCount <= 5) {
+        pages = Array.from({ length: pageCount }, (_, index) => index + 1);
+    } else if (currentPage <= 3) {
+        pages = [1, 2, 3, "...", pageCount];
+    } else if (currentPage >= pageCount - 2) {
+        pages = [1, "...", pageCount - 2, pageCount - 1, pageCount];
+    } else {
+        pages = [1, "...", currentPage - 1, currentPage, currentPage + 1, "...", pageCount];
+    }
+
+    pages.forEach((page) => {
+        if (page === "...") {
+            addEllipsis();
+        } else {
+            addButton(String(page), page, {
+                active: page === currentPage,
+            });
+        }
+    });
+
+    addButton("Next ›", Math.min(pageCount, currentPage + 1), {
+        disabled: currentPage === pageCount,
+    });
+}
+
+    function renderCatalog() {
+        const filteredCards = getFilteredCards();
+        const pageCount = Math.max(1, Math.ceil(filteredCards.length / pageSize));
+
+        currentPage = Math.min(currentPage, pageCount);
+
+        const startIndex = (currentPage - 1) * pageSize;
+        const visibleCards = new Set(
+            filteredCards.slice(startIndex, startIndex + pageSize)
+        );
+
+        cards.forEach((card) => {
+            card.classList.toggle("d-none", !visibleCards.has(card));
+        });
+
+        emptyMessage?.classList.toggle("d-none", filteredCards.length > 0);
+        renderPagination(pageCount);
+    }
+
+    const pagination = document.getElementById("catalogPagination");
+    const paginationList = pagination?.querySelector(".pagination");
+    const pageSize = 9;
+    let currentPage = 1;
+
+    searchInput?.addEventListener("input", () => {
+        currentPage = 1;
+        renderCatalog();
+    });
+
+    branchSelect?.addEventListener("change", () => {
+        currentPage = 1;
+        renderCatalog();
+    });
+
+    categorySelect?.addEventListener("change", () => {
+        currentPage = 1;
+        renderCatalog();
+    });
+
+    renderCatalog();
+
+    function showProduct(card) {
+        if (!modal) return;
+
+        const title = card.querySelector(".catalog-card-copy strong")?.textContent.trim() || "Produk";
+        const cardDescription = card.querySelector(".catalog-card-copy > span")?.textContent.trim() || "";
+        const cardImage = card.querySelector("img");
+
+        modalFields.title.textContent = title;
+        modalFields.description.textContent = card.dataset.modalDescription || cardDescription;
+        modalFields.use.textContent = card.dataset.modalUse || card.dataset.use || "Hubungi kami untuk saran pemakaian produk ini.";
+        modalFields.price.textContent = card.dataset.modalPrice || card.dataset.price || "Hubungi kami untuk informasi harga.";
+
+        if (cardImage) {
+            modalFields.image.src = card.dataset.modalImage || cardImage.currentSrc || cardImage.src;
+            modalFields.image.alt = cardImage.alt || title;
+        }
+
+        modalFields.orderLink.href = `mailto:alam@gmail.com?subject=${encodeURIComponent(`Pesan ${title} - Alam Indah`)}`;
         modal.show(card);
     }
 
-    cards.forEach((card) => card.addEventListener("click", () => openProduct(card)));
+    cards.forEach((card) => card.addEventListener("click", () => showProduct(card)));
 })();
+

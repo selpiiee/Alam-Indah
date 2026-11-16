@@ -114,20 +114,30 @@ body {
 /* ---------- NAVBAR ---------- */
 .hero-navbar {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
+    top: 18px;
+    left: 50%;
+    width: min(1320px, calc(100% - 48px));
+    padding: 10px 0;
+    transform: translateX(-50%);
+    z-index: 1030;
+    border: 1px solid rgba(255, 255, 255, .42);
+    border-radius: 20px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, .24), rgba(232, 240, 248, .1));
+    box-shadow: 0 18px 42px rgba(0, 0, 0, .2), 0 4px 12px rgba(0, 0, 0, .1),
+        inset 0 1px 0 rgba(255, 255, 255, .62), inset 0 -1px 0 rgba(255, 255, 255, .14);
+    -webkit-backdrop-filter: blur(28px) saturate(185%);
+    backdrop-filter: blur(28px) saturate(185%);
+    transition: top .25s ease, background-color .25s ease, border-color .25s ease,
+        box-shadow .25s ease;
+}
 
-    padding-top: 52px;
-    padding-bottom: 52px;
-
-    z-index: 9999;
-
-    background: linear-gradient(to bottom,
-            rgba(0, 0, 0, 0.75) 0%,
-            rgba(0, 0, 0, 0.45) 45%,
-            rgba(0, 0, 0, 0.15) 75%,
-            rgba(0, 0, 0, 0) 100%);
+.hero-navbar.is-scrolled,
+.catalog-navbar.is-scrolled {
+    top: 10px;
+    border-color: rgba(255, 255, 255, .76);
+    background: linear-gradient(135deg, rgba(255, 255, 255, .9), rgba(239, 246, 252, .78));
+    box-shadow: 0 18px 42px rgba(12, 37, 57, .2), 0 4px 12px rgba(12, 37, 57, .1),
+        inset 0 1px 0 rgba(255, 255, 255, .98), inset 0 -1px 0 rgba(255, 255, 255, .62);
 }
 
 /* ---------- HERO CONTENT ---------- */
@@ -138,22 +148,80 @@ body {
 
 .logo {
     width: 128px;
-    padding-left: 64px;
-    height: 80px;
+    padding-left: 0;
+    height: 64px;
     object-fit: contain;
 }
 
 .hero-navbar .nav-link {
     color: #ffffff;
+    text-shadow: 0 1px 5px rgba(0, 0, 0, .52);
     font-family: 'SF Pro Display', sans-serif;
     font-size: 18px;
     line-height: 1.35;
     font-weight: 500;
-    transition: color 0.3s ease;
+    padding: 10px 13px;
+    border: 1px solid transparent;
+    border-radius: 14px;
+    transition: color .2s ease, background-color .2s ease, border-color .2s ease,
+        box-shadow .2s ease, transform .2s ease;
 }
 
 .hero-navbar .nav-link:hover {
-    color: #EBF8FF;
+    color: #ffffff;
+    background: rgba(255, 255, 255, .12);
+}
+
+.hero-navbar .nav-link.active,
+.catalog-navbar .nav-link.active {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    min-height: 58px;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 12px 20px;
+    transform: translateY(-5px);
+    border: 1px solid rgba(255, 255, 255, .64);
+    border-radius: 20px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, .32) 0%, rgba(255, 255, 255, .12) 18%, rgba(10, 21, 34, .72) 100%);
+    box-shadow: 0 16px 24px rgba(0, 0, 0, .24), 0 3px 8px rgba(0, 0, 0, .16),
+        inset 0 2px 2px rgba(255, 255, 255, .86), inset 0 -8px 12px rgba(255, 255, 255, .16);
+}
+
+.hero-navbar .nav-link.active::before,
+.catalog-navbar .nav-link.active::before {
+    position: absolute;
+    top: 2px;
+    right: 8px;
+    left: 8px;
+    height: 34%;
+    border-radius: 999px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, .42), rgba(255, 255, 255, 0));
+    content: "";
+    pointer-events: none;
+}
+
+.hero-navbar.is-scrolled .nav-link,
+.catalog-navbar.is-scrolled .nav-link {
+    color: #18344b;
+    text-shadow: none;
+}
+
+.hero-navbar.is-scrolled .nav-link:hover,
+.catalog-navbar.is-scrolled .nav-link:hover {
+    color: #092f52;
+    background: rgba(9, 57, 83, .07);
+}
+
+.hero-navbar.is-scrolled .nav-link.active,
+.catalog-navbar.is-scrolled .nav-link.active {
+    color: #fff;
+    border-color: rgba(255, 255, 255, .68);
+    background: linear-gradient(180deg, rgba(255, 255, 255, .34), rgba(9, 45, 70, .94) 20%, rgba(9, 57, 83, .98));
+    box-shadow: 0 14px 24px rgba(12, 37, 57, .24), 0 3px 8px rgba(12, 37, 57, .16),
+        inset 0 2px 2px rgba(255, 255, 255, .78), inset 0 -8px 12px rgba(255, 255, 255, .14);
 }
 
 .nav-button {
@@ -164,12 +232,25 @@ body {
     padding: 8px 16px;
 }
 
-.hero-navbar .navbar-toggler {
+.hero-navbar .navbar-toggler,
+.catalog-navbar .navbar-toggler {
     border-color: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 1px 5px rgba(0, 0, 0, .16);
 }
 
-.hero-navbar .navbar-toggler-icon {
+.hero-navbar .navbar-toggler-icon,
+.catalog-navbar .navbar-toggler-icon {
     filter: invert(1);
+}
+
+.hero-navbar.is-scrolled .navbar-toggler,
+.catalog-navbar.is-scrolled .navbar-toggler {
+    border-color: rgba(9, 57, 83, .24);
+}
+
+.hero-navbar.is-scrolled .navbar-toggler-icon,
+.catalog-navbar.is-scrolled .navbar-toggler-icon {
+    filter: none;
 }
 
 
@@ -2132,4 +2213,148 @@ body {
         flex-direction: column;
         margin-top: 40px;
     }
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .hero-navbar .nav-link:hover,
+    .catalog-navbar .nav-link:hover {
+        position: relative;
+        z-index: 2;
+        transform: translateY(-3px);
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, .58);
+        border-radius: 12px;
+        background: rgba(255, 255, 255, .12);
+        box-shadow:
+            0 12px 20px rgba(0, 0, 0, .16),
+            inset 0 2px 2px rgba(255, 255, 255, .8),
+            inset 0 -6px 10px rgba(255, 255, 255, .12);
+        -webkit-backdrop-filter: blur(22px) saturate(180%);
+        backdrop-filter: blur(22px) saturate(180%);
+    }
+
+    .hero-navbar .nav-link:hover::before,
+    .catalog-navbar .nav-link:hover::before {
+        position: absolute;
+        top: 2px;
+        right: 8px;
+        left: 8px;
+        height: 34%;
+        border-radius: 10px;
+        background: linear-gradient(
+            180deg,
+            rgba(255, 255, 255, .48),
+            rgba(255, 255, 255, 0)
+        );
+        content: "";
+        pointer-events: none;
+    }
+
+    .hero-navbar.is-scrolled .nav-link:hover,
+    .catalog-navbar.is-scrolled .nav-link:hover {
+        color: #18344b;
+        text-shadow: none;
+        border-color: rgba(70, 85, 100, .24);
+        border-radius: 12px;
+        background: rgba(25, 40, 54, .08);
+        box-shadow:
+            0 10px 18px rgba(12, 37, 57, .12),
+            inset 0 1px 1px rgba(255, 255, 255, .85);
+    }
+}
+
+.hero-navbar .nav-button,
+.catalog-navbar .nav-button {
+    border: 1px solid rgba(255, 255, 255, .48);
+    background: linear-gradient(
+        135deg,
+        rgba(24, 137, 255, .97),
+        rgba(0, 94, 215, .96)
+    );
+    color: #fff;
+    box-shadow:
+        0 8px 18px rgba(0, 54, 130, .3),
+        inset 0 1px 1px rgba(255, 255, 255, .5),
+        inset 0 -3px 8px rgba(0, 42, 100, .2);
+    -webkit-backdrop-filter: blur(12px) saturate(160%);
+    backdrop-filter: blur(12px) saturate(160%);
+    transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+}
+
+.hero-navbar .nav-button:hover,
+.catalog-navbar .nav-button:hover {
+    transform: translateY(-2px);
+    border-color: rgba(255, 255, 255, .7);
+    background: linear-gradient(
+        135deg,
+        #2692ff,
+        #0870e9
+    );
+    color: #fff;
+    box-shadow:
+        0 11px 22px rgba(0, 54, 130, .36),
+        inset 0 2px 2px rgba(255, 255, 255, .62),
+        inset 0 -3px 8px rgba(0, 42, 100, .16);
+}
+
+.hero-navbar .nav-button:active,
+.catalog-navbar .nav-button:active {
+    transform: translateY(0);
+}
+
+/* Tombol hamburger */
+.navbar .navbar-toggler {
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 10px; /* biar nggak terlalu membulat */
+  background: rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.14);
+}
+
+/* Garis ikon hamburger tetap putih */
+.navbar .navbar-toggler-icon {
+  filter: brightness(0) invert(1);
+}
+
+/* Fokus/klik */
+.navbar .navbar-toggler:focus {
+  box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.2);
+}
+
+@media (max-width: 991.98px) {
+  /* Seluruh panel menu */
+  .navbar .navbar-collapse {
+    margin-top: 10px;
+    padding: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    border-radius: 12px;
+    background: rgba(35, 43, 58, 0.42);
+    backdrop-filter: blur(20px) saturate(150%);
+    -webkit-backdrop-filter: blur(20px) saturate(150%);
+    box-shadow:
+      0 12px 32px rgba(0, 0, 0, 0.22),
+      inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  }
+
+  /* Link tetap jelas di atas panel glass */
+  .navbar .navbar-collapse .nav-link {
+    padding: 10px 12px;
+    border-radius: 8px;
+    color: #fff;
+    font-weight: 600;
+    transition: background 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  /* Tiap link ikut punya efek glass saat disentuh/di-hover */
+  .navbar .navbar-collapse .nav-link:hover,
+  .navbar .navbar-collapse .nav-link:focus-visible {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.35),
+      0 4px 12px rgba(0, 0, 0, 0.12);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
 }

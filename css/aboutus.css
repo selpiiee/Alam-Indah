@@ -235,7 +235,7 @@
     padding: 64px 0;
 }
 
-.about-feature-block + .about-feature-block {
+.about-feature-block+.about-feature-block {
     margin-top: 72px;
 }
 
@@ -279,7 +279,7 @@
         padding: 48px 0;
     }
 
-    .about-feature-block + .about-feature-block {
+    .about-feature-block+.about-feature-block {
         margin-top: 40px;
     }
 
@@ -316,7 +316,8 @@
 
 .gallery-section {
     --gallery-gap: 12px;
-    --gw: 240px;   /* lebar tiap foto */
+    --gw: 240px;
+    /* lebar tiap foto */
 
     position: relative;
     height: 100vh;
@@ -366,7 +367,8 @@
 .gallery-head {
     position: absolute;
     left: clamp(20px, 4vw, 56px);
-    top: 120px;   /* di bawah navbar, jauh di atas strip foto */
+    top: 120px;
+    /* di bawah navbar, jauh di atas strip foto */
     z-index: 3;
     max-width: min(90%, 760px);
 }
@@ -455,7 +457,8 @@
     width: 100%;
     height: 100%;
     max-width: none;
-    object-fit: contain;
+    object-fit: cover;
+    object-position: center;
 }
 
 .gallery-caption {
@@ -486,6 +489,7 @@
 
 /* Tanpa animasi (reduced motion) */
 @media (prefers-reduced-motion: reduce) {
+
     .gallery-bg-layer,
     .gallery-item,
     .gallery-caption {

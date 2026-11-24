@@ -15,8 +15,8 @@
     const glassNavbars = document.querySelectorAll(".hero-navbar, .catalog-navbar");
     const syncGlassNavbars = () => {
         glassNavbars.forEach((navbar) => {
-            const hero = navbar.closest(".hero, .catalog-hero")
-                || document.querySelector(".hero, .catalog-hero");
+            const hero = navbar.closest(".hero, .catalog-hero, .about-hero")
+                || document.querySelector(".hero, .catalog-hero, .about-hero");
             const hasPassedHero = hero
                 ? hero.getBoundingClientRect().bottom <= navbar.getBoundingClientRect().bottom
                 : window.scrollY > 24;
@@ -197,81 +197,81 @@
     }
 
     function renderPagination(pageCount) {
-    if (!pagination || !paginationList) return;
+        if (!pagination || !paginationList) return;
 
-    paginationList.replaceChildren();
-    pagination.classList.toggle("d-none", pageCount <= 1);
+        paginationList.replaceChildren();
+        pagination.classList.toggle("d-none", pageCount <= 1);
 
-    if (pageCount <= 1) return;
+        if (pageCount <= 1) return;
 
-    function addButton(label, page, options = {}) {
-        const item = document.createElement("li");
-        item.className = "page-item";
+        function addButton(label, page, options = {}) {
+            const item = document.createElement("li");
+            item.className = "page-item";
 
-        if (options.active) item.classList.add("active");
-        if (options.disabled) item.classList.add("disabled");
+            if (options.active) item.classList.add("active");
+            if (options.disabled) item.classList.add("disabled");
 
-        const button = document.createElement("button");
-        button.type = "button";
-        button.className = "page-link";
-        button.textContent = label;
-        button.disabled = Boolean(options.disabled);
+            const button = document.createElement("button");
+            button.type = "button";
+            button.className = "page-link";
+            button.textContent = label;
+            button.disabled = Boolean(options.disabled);
 
-        if (options.active) {
-            button.setAttribute("aria-current", "page");
+            if (options.active) {
+                button.setAttribute("aria-current", "page");
+            }
+
+            button.addEventListener("click", () => {
+                currentPage = page;
+                renderCatalog();
+
+                document.getElementById("produk-list")?.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start",
+                });
+            });
+
+            item.append(button);
+            paginationList.append(item);
         }
 
-        button.addEventListener("click", () => {
-            currentPage = page;
-            renderCatalog();
+        function addEllipsis() {
+            const item = document.createElement("li");
+            item.className = "page-item pagination-ellipsis";
+            item.innerHTML = '<span class="page-link">...</span>';
+            paginationList.append(item);
+        }
 
-            document.getElementById("produk-list")?.scrollIntoView({
-                behavior: "smooth",
-                block: "start",
-            });
+        addButton("‹ Prev", Math.max(1, currentPage - 1), {
+            disabled: currentPage === 1,
         });
 
-        item.append(button);
-        paginationList.append(item);
-    }
+        let pages;
 
-    function addEllipsis() {
-        const item = document.createElement("li");
-        item.className = "page-item pagination-ellipsis";
-        item.innerHTML = '<span class="page-link">...</span>';
-        paginationList.append(item);
-    }
-
-    addButton("‹ Prev", Math.max(1, currentPage - 1), {
-        disabled: currentPage === 1,
-    });
-
-    let pages;
-
-    if (pageCount <= 5) {
-        pages = Array.from({ length: pageCount }, (_, index) => index + 1);
-    } else if (currentPage <= 3) {
-        pages = [1, 2, 3, "...", pageCount];
-    } else if (currentPage >= pageCount - 2) {
-        pages = [1, "...", pageCount - 2, pageCount - 1, pageCount];
-    } else {
-        pages = [1, "...", currentPage - 1, currentPage, currentPage + 1, "...", pageCount];
-    }
-
-    pages.forEach((page) => {
-        if (page === "...") {
-            addEllipsis();
+        if (pageCount <= 5) {
+            pages = Array.from({ length: pageCount }, (_, index) => index + 1);
+        } else if (currentPage <= 3) {
+            pages = [1, 2, 3, "...", pageCount];
+        } else if (currentPage >= pageCount - 2) {
+            pages = [1, "...", pageCount - 2, pageCount - 1, pageCount];
         } else {
-            addButton(String(page), page, {
-                active: page === currentPage,
-            });
+            pages = [1, "...", currentPage - 1, currentPage, currentPage + 1, "...", pageCount];
         }
-    });
 
-    addButton("Next ›", Math.min(pageCount, currentPage + 1), {
-        disabled: currentPage === pageCount,
-    });
-}
+        pages.forEach((page) => {
+            if (page === "...") {
+                addEllipsis();
+            } else {
+                addButton(String(page), page, {
+                    active: page === currentPage,
+                });
+            }
+        });
+
+        addButton("Next ›", Math.min(pageCount, currentPage + 1), {
+            disabled: currentPage === pageCount,
+        });
+    }
 
     function renderCatalog() {
         const filteredCards = getFilteredCards();

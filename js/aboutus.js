@@ -13,26 +13,6 @@
 ===================================================== */
 
 
-/* =====================================================
-   1. NAVBAR
-   Sama seperti halaman lain: putih di atas hero, lalu
-   berganti ke gaya terang saat melewati hero.
-   (Kalau script.js kamu sudah mengurus ini untuk semua
-   halaman, blok ini boleh dihapus.)
-===================================================== */
-
-(function () {
-    var navbar = document.querySelector('.hero-navbar');
-    if (!navbar) return;
-
-    function onScroll() {
-        navbar.classList.toggle('is-scrolled', window.scrollY > 40);
-    }
-
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-})();
-
 
 /* =====================================================
    2. GALLERY

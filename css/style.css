@@ -124,9 +124,15 @@ body {
     z-index: 1030;
     border: 1px solid rgba(255, 255, 255, .42);
     border-radius: 20px;
-    background: linear-gradient(135deg, rgba(255, 255, 255, .24), rgba(232, 240, 248, .1));
-    box-shadow: 0 18px 42px rgba(0, 0, 0, .2), 0 4px 12px rgba(0, 0, 0, .1),
-        inset 0 1px 0 rgba(255, 255, 255, .62), inset 0 -1px 0 rgba(255, 255, 255, .14);
+    background: linear-gradient(135deg,
+            rgba(255, 255, 255, .20),
+            rgba(255, 255, 255, .08) 55%,
+            rgba(230, 240, 250, .16));
+    box-shadow:
+        0 16px 36px rgba(0, 0, 0, .16),
+        inset 0 1px 0 rgba(255, 255, 255, .78),
+        inset 0 -1px 0 rgba(255, 255, 255, .22);
+    backdrop-filter: blur(28px) saturate(185%);
     -webkit-backdrop-filter: blur(28px) saturate(185%);
     backdrop-filter: blur(28px) saturate(185%);
     transition: top .25s ease, background-color .25s ease, border-color .25s ease,
@@ -867,6 +873,7 @@ body {
         aspect-ratio: 16 / 10;
     }
 }
+
 .btn-gradient {
     display: inline-flex;
     align-items: center;
@@ -2479,4 +2486,4 @@ body {
         grid-template-columns: minmax(0, 1fr);
         gap: 20px;
     }
-} 
+}

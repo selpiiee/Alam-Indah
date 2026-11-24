@@ -1,0 +1,527 @@
+/* =====================================================
+   ALAM INDAH - aboutus.css
+   Dipakai di aboutus.html, DIPASANG SETELAH style.css.
+   Aturan penulisan sama dengan style.css:
+   section bernomor, urutan: style dasar -> tablet -> HP.
+   (Navbar, hero, CTA, footer memakai style.css apa adanya)
+
+   14.  About Us
+   14a. Hero About
+   14b. Founder
+   14c. Profil (intro)
+   14d. Divider
+   14e. Keunggulan (fitur)
+   14f. Gallery
+===================================================== */
+
+/* Body di style.css berwarna putih, jadi tiap section putih
+   wajib menentukan warna teksnya sendiri. */
+
+
+/* =====================================================
+   14a. HERO ABOUT
+   Struktur sama dengan hero index. Hanya background-nya
+   yang beda. Kalau img/about/hero-about.png belum ada,
+   otomatis memakai hero-lp.png milik index.
+===================================================== */
+
+.hero-about {
+    min-height: 580px;
+    position: relative;
+    overflow: hidden;
+
+    background-image:
+        linear-gradient(to bottom,
+            rgba(0, 0, 0, 0.78) 0%,
+            rgba(0, 0, 0, 0.10) 45%,
+            rgba(0, 0, 0, 0.35) 100%),
+        url("../img/hero/aboutus.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* =====================================================
+   14b. FOUNDER
+===================================================== */
+
+.founder-section {
+    background-color: #ffffff;
+    color: #111111;
+    padding: 80px 0;
+}
+
+.founder-photo {
+    height: 652px;
+    overflow: hidden;
+    border-radius: 32px;
+    background-color: #e9edf1;
+}
+
+.founder-photo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.founder-quote {
+    margin: 0 0 12px;
+    color: #1f2632;
+    font-family: 'SF Pro Display', sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.16;
+    letter-spacing: -0.96px;
+}
+
+.founder-name {
+    margin: 0 0 16px;
+    color: #888888;
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+.founder-section .btn-gradient {
+    padding: 12px 20px;
+    font-size: 18px;
+}
+
+/* Tablet */
+
+@media (max-width: 991.98px) {
+    .founder-section {
+        padding: 56px 0;
+    }
+
+    .founder-photo {
+        height: 420px;
+    }
+
+    .founder-quote {
+        font-size: 32px;
+    }
+}
+
+/* HP */
+
+@media (max-width: 575.98px) {
+    .founder-photo {
+        height: 320px;
+        border-radius: 20px;
+    }
+
+    .founder-quote {
+        font-size: 22px;
+        letter-spacing: -0.4px;
+    }
+
+    .founder-name {
+        font-size: 14px;
+    }
+
+    .founder-section .btn-gradient {
+        font-size: 16px;
+    }
+}
+
+
+/* =====================================================
+   14c. PROFIL (INTRO)
+===================================================== */
+
+.profile-section {
+    background-color: #ffffff;
+    color: #111111;
+    padding: 64px 0 24px;
+    text-align: center;
+}
+
+.profile-section h2 {
+    max-width: 1058px;
+    margin: 12px auto 20px;
+    font-family: 'SF Pro Display', sans-serif;
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 1.12;
+    letter-spacing: -1.28px;
+}
+
+.profile-section p {
+    max-width: 738px;
+    margin: 0 auto;
+    color: #5d5d5d;
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+/* Tablet */
+
+@media (max-width: 991.98px) {
+    .profile-section h2 {
+        font-size: 40px;
+        letter-spacing: -0.8px;
+    }
+}
+
+/* HP */
+
+@media (max-width: 575.98px) {
+    .profile-section {
+        padding-top: 42px;
+    }
+
+    .profile-section h2 {
+        font-size: 26px;
+        letter-spacing: -0.4px;
+    }
+
+    .profile-section p {
+        font-size: 14px;
+    }
+}
+
+
+/* =====================================================
+   14d. DIVIDER
+===================================================== */
+
+.about-divider {
+    background-color: #ffffff;
+    padding: 24px 0;
+}
+
+.about-divider-inner {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.about-divider-line {
+    flex: 1 1 0;
+    height: 1px;
+}
+
+.about-divider-line.is-left {
+    background: linear-gradient(to right, rgba(0, 119, 255, 0), #0077ff);
+}
+
+.about-divider-line.is-right {
+    background: linear-gradient(to right, #0077ff, rgba(0, 119, 255, 0));
+}
+
+.about-divider img {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+@media (max-width: 575.98px) {
+    .about-divider-inner {
+        gap: 16px;
+    }
+}
+
+
+/* =====================================================
+   14e. KEUNGGULAN (FITUR)
+===================================================== */
+
+.about-feature-section {
+    background-color: #ffffff;
+    color: #111111;
+    padding: 64px 0;
+}
+
+.about-feature-block + .about-feature-block {
+    margin-top: 72px;
+}
+
+.about-feature-block h3 {
+    margin: 0 0 8px;
+    color: #2e2e2e;
+    font-family: 'SF Pro Display', sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.16;
+    letter-spacing: -0.96px;
+}
+
+.about-feature-block p {
+    margin: 0;
+    color: #4f4f4f;
+    font-size: 18px;
+    line-height: 1.35;
+}
+
+.about-feature-photo {
+    height: 100%;
+    min-height: 420px;
+    overflow: hidden;
+    border-radius: 32px;
+    background-color: #e9edf1;
+}
+
+.about-feature-photo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 420px;
+    object-fit: cover;
+}
+
+/* Tablet */
+
+@media (max-width: 991.98px) {
+    .about-feature-section {
+        padding: 48px 0;
+    }
+
+    .about-feature-block + .about-feature-block {
+        margin-top: 40px;
+    }
+
+    .about-feature-block h3 {
+        font-size: 32px;
+    }
+}
+
+/* HP */
+
+@media (max-width: 575.98px) {
+    .about-feature-block h3 {
+        font-size: 24px;
+    }
+
+    .about-feature-block p {
+        font-size: 14px;
+    }
+
+    .about-feature-photo,
+    .about-feature-photo img {
+        min-height: 280px;
+        border-radius: 20px;
+    }
+}
+
+
+/* =====================================================
+   14f. GALLERY
+   Strip foto berjalan ke kiri pelan-pelan (diatur di js/aboutus.js).
+   Foto di posisi fokus = foto terpilih (lebih tinggi, berbingkai),
+   dan background section memakai foto yang sama.
+===================================================== */
+
+.gallery-section {
+    --gallery-gap: 12px;
+    --gw: 240px;   /* lebar tiap foto */
+
+    position: relative;
+    height: 100vh;
+    min-height: 700px;
+    overflow: hidden;
+    background-color: #171717;
+    color: #ffffff;
+}
+
+/* ----- Background = foto terpilih ----- */
+
+.gallery-bg {
+    position: absolute;
+    inset: 0;
+    background-color: #171717;
+}
+
+.gallery-bg-layer {
+    position: absolute;
+    inset: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: grayscale(0.85);
+    opacity: 0;
+    transform: scale(1.05);
+    transition:
+        opacity 1.4s ease,
+        transform 6s ease-out;
+}
+
+.gallery-bg-layer.is-on {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* lapisan gelap supaya teks putih tetap terbaca */
+.gallery-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+/* ----- Judul + deskripsi ----- */
+
+.gallery-head {
+    position: absolute;
+    left: clamp(20px, 4vw, 56px);
+    top: 120px;   /* di bawah navbar, jauh di atas strip foto */
+    z-index: 3;
+    max-width: min(90%, 760px);
+}
+
+.gallery-title {
+    margin: 0 0 10px;
+    padding: 0 64px;
+    color: #ffffff;
+    font-family: 'SF Pro Display', sans-serif;
+    font-size: clamp(34px, 4.6vw, 68px);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.03em;
+}
+
+.gallery-desc {
+    margin: 0;
+    padding: 0 64px;
+    color: rgba(255, 255, 255, 0.86);
+    font-size: clamp(15px, 1.3vw, 18px);
+    line-height: 1.45;
+}
+
+/* ----- Strip foto ----- */
+
+.gallery-strip {
+    position: absolute;
+    top: 38%;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    overflow: hidden;
+}
+
+.gallery-track {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: var(--gallery-gap);
+    width: max-content;
+    will-change: transform;
+}
+
+.gallery-item {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 var(--gw);
+    width: var(--gw);
+    height: var(--gw);
+    margin: 0;
+    overflow: hidden;
+    box-sizing: border-box;
+    border: 0 solid rgba(255, 255, 255, 0.92);
+    background-color: #0b0b0b;
+    cursor: pointer;
+    transition:
+        height 1s cubic-bezier(0.65, 0, 0.35, 1),
+        border-width 0.6s ease;
+}
+
+.gallery-photo {
+    position: relative;
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow: hidden;
+    background-color: #0b0b0b;
+}
+
+/* latar blur dari foto yang sama, mengisi ruang kosong di sisi foto portrait/landscape */
+.gallery-photo::before {
+    content: "";
+    position: absolute;
+    inset: -24px;
+    background-image: var(--photo);
+    background-position: center;
+    background-size: cover;
+    filter: blur(20px) brightness(0.55);
+}
+
+/* contain = foto tampil utuh (tidak terpotong). Mau memenuhi kotak seperti dulu? ganti jadi cover */
+.gallery-photo img {
+    position: relative;
+    z-index: 1;
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    object-fit: contain;
+}
+
+.gallery-caption {
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    height: 0;
+    padding: 0 12px;
+    overflow: hidden;
+    background-color: #2b2b2b;
+    color: #ffffff;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+    transition: height 1s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+/* foto terpilih */
+.gallery-item.is-active {
+    height: calc(var(--gw) * 1.55);
+    border-width: 3px;
+    cursor: default;
+}
+
+.gallery-item.is-active .gallery-caption {
+    height: 44px;
+}
+
+/* Tanpa animasi (reduced motion) */
+@media (prefers-reduced-motion: reduce) {
+    .gallery-bg-layer,
+    .gallery-item,
+    .gallery-caption {
+        transition: none;
+    }
+}
+
+/* Tablet */
+
+@media (max-width: 991.98px) {
+    .gallery-section {
+        --gw: 190px;
+    }
+}
+
+/* HP */
+
+@media (max-width: 575.98px) {
+    .gallery-section {
+        --gw: 40vw;
+        --gallery-gap: 8px;
+    }
+
+    .gallery-head {
+        top: 100px;
+    }
+
+    .gallery-strip {
+        top: 40%;
+    }
+
+    .gallery-caption {
+        font-size: 11px;
+    }
+
+    .gallery-item.is-active .gallery-caption {
+        height: 36px;
+    }
+}

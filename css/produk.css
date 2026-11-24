@@ -152,9 +152,14 @@
     text-align: center;
 }
 
+/* =====================================================
+   MODAL DETAIL PRODUK — LANDSCAPE
+===================================================== */
+
 .catalog-modal .modal-dialog {
-    max-width: 568px;
-    margin: 1rem auto;
+    width: calc(100% - 48px);
+    max-width: 900px;
+    padding: 24px;
 }
 
 .catalog-modal .modal-content {
@@ -162,15 +167,20 @@
     border: 0;
     border-radius: 20px;
     background: #fff;
-    box-shadow: 0 2px 14px -10px rgba(0, 0, 0, .25),
+    box-shadow:
+        0 2px 14px -10px rgba(0, 0, 0, .25),
         0 1px 10px -2px rgba(12, 37, 57, .2),
         0 0 0 1px rgba(12, 37, 57, .1);
 }
 
 .catalog-modal .modal-header {
-    align-items: center;
-    padding: 24px 24px 16px;
-    border: 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding-top: 24px;
+    padding-bottom: 16px;
+    padding-left: 24px;
+    border-bottom: 0;
 }
 
 .catalog-modal .modal-title {
@@ -182,17 +192,14 @@
 }
 
 .catalog-modal-close {
-    display: grid;
-    width: 24px;
-    height: 24px;
-    place-items: center;
+    margin-left: auto;
     padding: 0;
     border: 0;
-    border-radius: 50%;
     background: transparent;
-    color: #45464a;
-    font-size: 24px;
+    color: #333;
+    font-size: 1.5rem;
     line-height: 1;
+    cursor: pointer;
 }
 
 .catalog-modal .modal-body {
@@ -203,7 +210,6 @@
     display: block;
     width: 100%;
     aspect-ratio: 4 / 3;
-    margin-bottom: 16px;
     border-radius: 16px;
     background: #e7e1dc;
     object-fit: cover;
@@ -224,8 +230,16 @@
 .catalog-modal-detail p {
     margin: 0;
     color: #45464a;
-    font-size: 18px;
-    line-height: 1.35;
+    font-size: 16px;
+    line-height: 1.45;
+}
+
+.catalog-modal-price {
+    margin-bottom: 16px;
+}
+
+.catalog-modal-price h3 {
+    font-weight: 400;
 }
 
 .catalog-modal-price p {
@@ -235,26 +249,19 @@
     line-height: 1.4;
 }
 
-.catalog-modal-price h3 {
-    font-weight: 400;
-}
-
-.catalog-modal-price {
-    margin-bottom: 0;
-}
-
 .catalog-order-btn {
     display: flex;
+    width: 100%;
     min-height: 52px;
     align-items: center;
     justify-content: center;
     gap: 8px;
-    margin-top: 0;
+    padding: 10px 16px;
     border: 2px solid rgba(255, 255, 255, .64);
     border-radius: 8px;
     background: linear-gradient(180deg, #0878ed, #005ed7);
     color: #fff;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 600;
     text-decoration: none;
 }
@@ -270,40 +277,24 @@
     -webkit-backdrop-filter: blur(6px);
 }
 
-@media (max-width: 991.98px) {
-    .catalog-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-}
-
+/* Tablet dan HP: gambar di atas, detail di bawah */
 @media (max-width: 767.98px) {
-    .catalog-filters {
-        grid-template-columns: 1fr 1fr;
-        gap: 8px;
+    .catalog-modal .modal-dialog {
+        width: calc(100% - 32px);
+        max-width: 560px;
+        padding: 16px;
     }
 
-    .catalog-search {
-        grid-column: 1 / -1;
+    .catalog-modal-image {
+        aspect-ratio: 16 / 10;
     }
-
 }
 
 @media (max-width: 575.98px) {
-    .catalog-section {
-        padding: 34px 0 46px;
-    }
-
-    .catalog-grid {
-        grid-template-columns: 1fr;
-        gap: 22px;
-    }
-
-    .catalog-card img {
-        aspect-ratio: 1.65 / 1;
-    }
-
     .catalog-modal .modal-dialog {
-        margin: 1rem;
+        width: calc(100% - 24px);
+        margin: 12px auto;
+        padding: 0;
     }
 
     .catalog-modal .modal-header {
@@ -331,7 +322,6 @@
         font-size: 16px;
     }
 }
-
 /* =====================================================
    3. CTA BANNER
 ===================================================== */

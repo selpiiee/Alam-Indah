@@ -14,12 +14,20 @@
 ===================================================== */
 
 .hero-layanan {
+    min-height: 580px;
+    position: relative;
+    overflow: hidden;
+
     background-image:
         linear-gradient(to bottom,
             rgba(0, 0, 0, 0.78) 0%,
             rgba(0, 0, 0, 0.10) 45%,
             rgba(0, 0, 0, 0.35) 100%),
         url("../img/hero/layanan.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 
@@ -319,10 +327,8 @@
     color: #ffffff;
 
     background-image:
-        linear-gradient(
-            rgba(0, 0, 0, 0.44),
-            rgba(0, 0, 0, 0.44)
-        ),
+        linear-gradient(rgba(0, 0, 0, 0.44),
+            rgba(0, 0, 0, 0.44)),
         url("../img/cta/cta.png");
 
     background-size: cover;
@@ -420,4 +426,3 @@
         max-height: 64px;
     }
 }
-

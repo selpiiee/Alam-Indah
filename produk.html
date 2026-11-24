@@ -42,11 +42,15 @@
                     </li>
 
                     <li class="nav-item">
+                        <a class="nav-link" href="artikel.html">Artikel</a>
+                    </li>
+                    
+                    <li class="nav-item">
                         <a class="nav-link" href="kontak.html">Kontak</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="btn btn-primary btn-sm nav-button" href="#produk">
+                        <a class="btn btn-primary btn-sm nav-button" href="aboutus.html">
                             Alam Indah ↗
                         </a>
                     </li>
@@ -66,9 +70,8 @@
             <div class="hero-text">
 
                 <div class="hero-breadcrumb">
-                    <span class="breadcrumb-active">Lorem Ipsum</span>
-                    <span>Lorem Ipsum Dolor</span>
-                    <span>Lorem ↗</span>
+                    <span class="breadcrumb-active">Katalog Produk</span>
+                    <span>Koleksi Batu Alam Pilihan</span>
                 </div>
 
                 <h1>
@@ -93,7 +96,7 @@
             <div class="container">
                 <header class="catalog-heading">
                     <h2>Produk</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <p>Sedia beragam varian batu alam pilihan siap kirim, melayani pembelian eceran untuk hunian maupun suplai proyek besar</p>
                 </header>
 
                 <div class="catalog-filters">
@@ -362,30 +365,48 @@
 
         <div class="modal fade catalog-modal" id="catalogModal" tabindex="-1" aria-labelledby="catalogModalTitle"
             aria-describedby="catalogModalDescription" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
                 <div class="modal-content">
+
                     <div class="modal-header">
                         <h2 class="modal-title" id="catalogModalTitle">Produk</h2>
-                        <button type="button" class="catalog-modal-close" data-bs-dismiss="modal"
-                            aria-label="Tutup">&times;</button>
+
+                        <button type="button" class="catalog-modal-close" data-bs-dismiss="modal" aria-label="Tutup">
+                            &times;
+                        </button>
                     </div>
+
                     <div class="modal-body">
-                        <img class="catalog-modal-image" id="catalogModalImage" src="" alt="">
-                        <section class="catalog-modal-detail">
-                            <h3>Deskripsi Batu</h3>
-                            <p id="catalogModalDescription"></p>
-                        </section>
-                        <section class="catalog-modal-detail">
-                            <h3>Saran Pemakaian</h3>
-                            <p id="catalogModalUse"></p>
-                        </section>
-                        <section class="catalog-modal-detail catalog-modal-price">
-                            <h3>Harga</h3>
-                            <p id="catalogModalPrice"></p>
-                        </section>
-                        <a class="catalog-order-btn" id="catalogOrderLink" href="mailto:alam@gmail.com">Pesan Sekarang
-                            <span aria-hidden="true">↗</span></a>
+                        <div class="row g-4 align-items-center">
+
+                            <div class="col-md-6">
+                                <img class="catalog-modal-image" id="catalogModalImage" src="" alt="">
+                            </div>
+
+                            <div class="col-md-6">
+                                <section class="catalog-modal-detail">
+                                    <h3>Deskripsi Batu</h3>
+                                    <p id="catalogModalDescription"></p>
+                                </section>
+
+                                <section class="catalog-modal-detail">
+                                    <h3>Saran Pemakaian</h3>
+                                    <p id="catalogModalUse"></p>
+                                </section>
+
+                                <section class="catalog-modal-detail catalog-modal-price">
+                                    <h3>Harga</h3>
+                                    <p id="catalogModalPrice"></p>
+                                </section>
+
+                                <a class="catalog-order-btn" id="catalogOrderLink" href="mailto:alam@gmail.com">
+                                    Pesan Sekarang <span aria-hidden="true">↗</span>
+                                </a>
+                            </div>
+
+                        </div>
                     </div>
+
                 </div>
             </div>
         </div>

@@ -178,7 +178,7 @@
                     <ul>
                         <li>
                             <span>Malang (Pusat)</span>
-                            <a href="tel:+621358734165">+ 62 813-5873-4165</a>
+                            <a href="tel:+6281358734165">+62 813-5873-4165</a>
                         </li>
                         <li>
                             <span>Berau</span>
@@ -190,7 +190,7 @@
                         </li>
                         <li>
                             <span>Email</span>
-                            <a href="mailto:alam@gmail.com">alam@gmail.com</a>
+                            <a href="mailto:girimulyamalang@gmail.com">girimulyamalang@gmail.com</a>
                         </li>
                     </ul>
                 </div>
@@ -306,7 +306,6 @@
             const MAX_ARTICLES = 9;                                  // hanya 9 artikel yang tampil
             const DEFAULT_IMAGE = "img/artikel/Rectangle%205435.png"; // foto bawaan project
             const CATEGORY = "Tips & Trick";
-            const DATE_LABEL = "Aug 2026";
 
             // Cegah karakter spesial merusak HTML
             function escapeHtml(text) {
@@ -330,7 +329,7 @@
                     <article class="card article-card-item h-100">
                         <img src="${image}" class="card-img-top" alt="${title}" loading="lazy">
                         <div class="card-body">
-                            <p class="article-meta">${CATEGORY}<span class="dot">•</span>${DATE_LABEL}</p>
+                            <p class="article-meta">${CATEGORY}<span class="dot"></p>
                             <h3 class="card-title article-title" title="${title}">${title}</h3>
                             <a href="${escapeHtml(article.link)}" class="btn btn-primary btn-sm article-btn"
                                 target="_blank" rel="noopener noreferrer">Baca artikel →</a>
